@@ -15,21 +15,21 @@ export function ImmuneSystem() {
   ];
 
   const factorsThatWeakenImmunity = [
-    { name: "Chronic Stress", icon: <Zap className="h-5 w-5" />, impact: "High" },
-    { name: "Poor Sleep", icon: <Moon className="h-5 w-5" />, impact: "High" },
-    { name: "Poor Nutrition", icon: <Utensils className="h-5 w-5" />, impact: "High" },
-    { name: "Sedentary Lifestyle", icon: <Dumbbell className="h-5 w-5" />, impact: "Medium" },
-    { name: "Excess Alcohol", icon: <Heart className="h-5 w-5" />, impact: "Medium" },
-    { name: "Aging (Immunosenescence)", icon: <Users className="h-5 w-5" />, impact: "High" }
+    { name: "Chronic Stress", icon: <Zap className="h-5 w-5" />, impact: "High", searchQuery: "Longevity & Health Optimization > Defense Systems > Immune System > Chronic Stress" },
+    { name: "Poor Sleep", icon: <Moon className="h-5 w-5" />, impact: "High", searchQuery: "Longevity & Health Optimization > Defense Systems > Immune System > Poor Sleep" },
+    { name: "Poor Nutrition", icon: <Utensils className="h-5 w-5" />, impact: "High", searchQuery: "Longevity & Health Optimization > Defense Systems > Immune System > Poor Nutrition" },
+    { name: "Sedentary Lifestyle", icon: <Dumbbell className="h-5 w-5" />, impact: "Medium", searchQuery: "Longevity & Health Optimization > Defense Systems > Immune System > Sedentary Lifestyle" },
+    { name: "Excess Alcohol", icon: <Heart className="h-5 w-5" />, impact: "Medium", searchQuery: "Longevity & Health Optimization > Defense Systems > Immune System > Excess Alcohol" },
+    { name: "Aging (Immunosenescence)", icon: <Users className="h-5 w-5" />, impact: "High", searchQuery: "Longevity & Health Optimization > Defense Systems > Immune System > Aging (Immunosenescence)" }
   ];
 
   const waysToSupportImmunity = [
-    { name: "Balanced Diet", description: "Rich in vitamins and minerals.", icon: <Utensils className="h-6 w-6 text-green-500" /> },
-    { name: "Regular Exercise", description: "Moderate intensity is key.", icon: <Dumbbell className="h-6 w-6 text-blue-500" /> },
-    { name: "Quality Sleep", description: "7-9 hours per night.", icon: <Moon className="h-6 w-6 text-indigo-500" /> },
-    { name: "Stress Management", description: "Mindfulness, meditation.", icon: <Zap className="h-6 w-6 text-yellow-500" /> },
-    { name: "Supplementation", description: "Vitamin D, C, Zinc.", icon: <ShieldCheck className="h-6 w-6 text-purple-500" /> },
-    { name: "Hydration", description: "Water is essential for immune function.", icon: <Heart className="h-6 w-6 text-red-500" /> }
+    { name: "Balanced Diet", description: "Rich in vitamins and minerals.", icon: <Utensils className="h-6 w-6 text-green-500" />, searchQuery: "Longevity & Health Optimization > Defense Systems > Immune System > Balanced Diet" },
+    { name: "Regular Exercise", description: "Moderate intensity is key.", icon: <Dumbbell className="h-6 w-6 text-blue-500" />, searchQuery: "Longevity & Health Optimization > Defense Systems > Immune System > Regular Exercise" },
+    { name: "Quality Sleep", description: "7-9 hours per night.", icon: <Moon className="h-6 w-6 text-indigo-500" />, searchQuery: "Longevity & Health Optimization > Defense Systems > Immune System > Quality Sleep" },
+    { name: "Stress Management", description: "Mindfulness, meditation.", icon: <Zap className="h-6 w-6 text-yellow-500" />, searchQuery: "Longevity & Health Optimization > Defense Systems > Immune System > Stress Management" },
+    { name: "Supplementation", description: "Vitamin D, C, Zinc.", icon: <ShieldCheck className="h-6 w-6 text-purple-500" />, searchQuery: "Longevity & Health Optimization > Defense Systems > Immune System > Supplementation" },
+    { name: "Hydration", description: "Water is essential for immune function.", icon: <Heart className="h-6 w-6 text-red-500" />, searchQuery: "Longevity & Health Optimization > Defense Systems > Immune System > Hydration" }
   ];
 
   return (
@@ -77,21 +77,23 @@ export function ImmuneSystem() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {factorsThatWeakenImmunity.map((factor, index) => (
-            <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="flex justify-center mb-2">
-                  {factor.icon}
-                </div>
-                <CardTitle className="text-lg">{factor.name}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Badge
-                  variant={factor.impact === 'High' ? 'destructive' : 'secondary'}
-                >
-                  {factor.impact} Impact
-                </Badge>
-              </CardContent>
-            </Card>
+            <Link to={`https://www.google.com/search?q=${encodeURIComponent(factor.searchQuery)}`} target="_blank" rel="noopener noreferrer" className="block hover:no-underline">
+              <Card key={index} className="text-center h-full hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="flex justify-center mb-2">
+                    {factor.icon}
+                  </div>
+                  <CardTitle className="text-lg">{factor.name}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <Badge
+                    variant={factor.impact === 'High' ? 'destructive' : 'secondary'}
+                  >
+                    {factor.impact} Impact
+                  </Badge>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </section>
@@ -103,17 +105,19 @@ export function ImmuneSystem() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {waysToSupportImmunity.map((way, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center text-lg">
-                  {way.icon}
-                  <span className="ml-2">{way.name}</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{way.description}</p>
-              </CardContent>
-            </Card>
+            <Link to={`https://www.google.com/search?q=${encodeURIComponent(way.searchQuery)}`} target="_blank" rel="noopener noreferrer" className="block hover:no-underline">
+              <Card key={index} className="h-full hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <CardTitle className="flex items-center text-lg">
+                    {way.icon}
+                    <span className="ml-2">{way.name}</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">{way.description}</p>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </section>
