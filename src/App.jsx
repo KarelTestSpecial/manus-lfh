@@ -2,7 +2,7 @@ import React from 'react';
 import { HashRouter as Router, Routes } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import navItems from './lib/navItems';
-import generateRoutes from './lib/routeGenerator';
+import generateRoutes from './lib/routeGenerator.jsx';
 
 import { Home } from './components/Home';
 import { Aging } from './components/Aging';
