@@ -13,11 +13,6 @@ import { Microbiome } from './components/Microbiome';
 import { Nutrition } from './components/Nutrition';
 import { BoneHealth } from './components/BoneHealth';
 import { DefenseSystems } from './components/DefenseSystems';
-import { ImmuneSystem } from './components/ImmuneSystem';
-import { Detoxification } from './components/Detoxification';
-import { AntioxidantDefense } from './components/AntioxidantDefense';
-import { CellRepair } from './components/CellRepair';
-import { MicrobiomeBalance } from './components/MicrobiomeBalance';
 import { Circulation } from './components/Circulation';
 import { Exercise } from './components/Exercise';
 import { Metabolism } from './components/Metabolism';
@@ -38,11 +33,6 @@ const componentMap = {
   Nutrition,
   BoneHealth,
   DefenseSystems,
-  ImmuneSystem,
-  Detoxification,
-  AntioxidantDefense,
-  CellRepair,
-  MicrobiomeBalance,
   Circulation,
   Exercise,
   Metabolism,
