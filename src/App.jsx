@@ -1,6 +1,9 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
+import navItems from './lib/navItems';
+import generateRoutes from './lib/routeGenerator';
+
 import { Home } from './components/Home';
 import { Aging } from './components/Aging';
 import { Inflammation } from './components/Inflammation';
@@ -25,6 +28,31 @@ import { Toxins } from './components/Toxins';
 import { OtherHealth } from './components/OtherHealth';
 import './App.css';
 
+const componentMap = {
+  Home,
+  Aging,
+  Inflammation,
+  Autophagy,
+  Mitochondria,
+  Microbiome,
+  Nutrition,
+  BoneHealth,
+  DefenseSystems,
+  ImmuneSystem,
+  Detoxification,
+  AntioxidantDefense,
+  CellRepair,
+  MicrobiomeBalance,
+  Circulation,
+  Exercise,
+  Metabolism,
+  Sleep,
+  Mindset,
+  Technology,
+  Toxins,
+  OtherHealth,
+};
+
 function App() {
   return (
     <Router>
@@ -32,28 +60,7 @@ function App() {
         <Navigation />
         <main className="pt-16">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/aging" element={<Aging />} />
-            <Route path="/inflammation" element={<Inflammation />} />
-            <Route path="/autophagy" element={<Autophagy />} />
-            <Route path="/mitochondria" element={<Mitochondria />} />
-            <Route path="/microbiome" element={<Microbiome />} />
-            <Route path="/nutrition" element={<Nutrition />} />
-            <Route path="/bone-health" element={<BoneHealth />} />
-            <Route path="/defense-systems" element={<DefenseSystems />} />
-            <Route path="/defense-systems/immune-system" element={<ImmuneSystem />} />
-            <Route path="/defense-systems/detoxification" element={<Detoxification />} />
-            <Route path="/defense-systems/antioxidant-defense" element={<AntioxidantDefense />} />
-            <Route path="/defense-systems/cell-repair" element={<CellRepair />} />
-            <Route path="/defense-systems/microbiome-balance" element={<MicrobiomeBalance />} />
-            <Route path="/circulation" element={<Circulation />} />
-            <Route path="/exercise" element={<Exercise />} />
-            <Route path="/metabolism" element={<Metabolism />} />
-            <Route path="/sleep" element={<Sleep />} />
-            <Route path="/mindset" element={<Mindset />} />
-            <Route path="/technology" element={<Technology />} />
-            <Route path="/toxins" element={<Toxins />} />
-            <Route path="/other-health" element={<OtherHealth />} />
+            {generateRoutes(navItems, componentMap)}
           </Routes>
         </main>
       </div>
