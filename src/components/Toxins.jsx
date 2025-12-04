@@ -1,7 +1,6 @@
 import React from 'react';
 import { Skull, FlaskConical, Leaf, Shield } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Link } from 'react-router-dom';
+import { DialogCard } from '@/components/ui/DialogCard';
 
 export function Toxins() {
   const toxinSources = [
@@ -47,23 +46,15 @@ export function Toxins() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {toxinSources.map((source, index) => (
-          <Card key={index} className="hover:shadow-lg transition-shadow">
-            <Link to={`https://www.google.com/search?q=${encodeURIComponent(source.searchQuery)}`} target="_blank" rel="noopener noreferrer">
-              <CardHeader>
-                <div className="flex items-center mb-2">
-                  {source.icon}
-                  <CardTitle className="ml-3 text-xl">{source.name}</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{source.description}</p>
-              </CardContent>
-            </Link>
-          </Card>
+          <DialogCard
+            key={index}
+            icon={source.icon}
+            title={source.name}
+            description={source.description}
+            searchQuery={source.searchQuery}
+          />
         ))}
       </div>
     </div>
   );
 }
-
-

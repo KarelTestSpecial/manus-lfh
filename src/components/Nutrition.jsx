@@ -1,7 +1,7 @@
 import React from 'react'
 import { Apple, CheckCircle, X, Heart, Leaf } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
+import { DialogCard } from '@/components/ui/DialogCard'
 
 export function Nutrition() {
   const goodFoods = [
@@ -46,11 +46,13 @@ export function Nutrition() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="space-y-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {goodFoods.map((food, index) => (
-                <Badge key={index} variant="secondary" className="mr-2 mb-2 bg-green-100 text-green-700">
-                  {food}
-                </Badge>
+                <DialogCard
+                  key={index}
+                  title={food}
+                  searchQuery={`Longevity & Health Optimization > Nutrition & Diet > Foods to Emphasize > ${food}`}
+                />
               ))}
             </div>
           </CardContent>
@@ -64,11 +66,13 @@ export function Nutrition() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="space-y-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {avoidFoods.map((food, index) => (
-                <Badge key={index} variant="destructive" className="mr-2 mb-2">
-                  {food}
-                </Badge>
+                <DialogCard
+                  key={index}
+                  title={food}
+                  searchQuery={`Longevity & Health Optimization > Nutrition & Diet > Foods to Limit/Avoid > ${food}`}
+                />
               ))}
             </div>
           </CardContent>
@@ -97,4 +101,3 @@ export function Nutrition() {
     </div>
   )
 }
-

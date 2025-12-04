@@ -2,7 +2,7 @@ import React from 'react';
 import { Moon, Sun, Clock, Battery, Brain, Zap, Coffee, Smartphone } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Link } from 'react-router-dom';
+import { DialogCard } from '@/components/ui/DialogCard';
 
 export function Sleep() {
   const sleepStages = [
@@ -100,18 +100,17 @@ export function Sleep() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {sleepStages.map((stage, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center text-lg">
-                  {stage.icon}
-                  <span className="ml-2">{stage.name}</span>
-                </CardTitle>
-                <CardDescription>{stage.percentage} of night</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{stage.description}</p>
-              </CardContent>
-            </Card>
+            <DialogCard
+              key={index}
+              icon={stage.icon}
+              title={stage.name}
+              description={stage.description}
+              searchQuery={`Longevity & Health Optimization > Sleep Optimization > Sleep Stages > ${stage.name}`}
+            >
+              <div className="mt-2">
+                <Badge variant="outline">{stage.percentage} of night</Badge>
+              </div>
+            </DialogCard>
           ))}
         </div>
       </section>
@@ -123,17 +122,13 @@ export function Sleep() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {hygieneTips.map((tip, index) => (
-            <Card key={index} className="hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center text-lg">
-                  {tip.icon}
-                  <span className="ml-2">{tip.title}</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{tip.tip}</p>
-              </CardContent>
-            </Card>
+            <DialogCard
+              key={index}
+              icon={tip.icon}
+              title={tip.title}
+              description={tip.tip}
+              searchQuery={`Longevity & Health Optimization > Sleep Optimization > Sleep Hygiene > ${tip.title}`}
+            />
           ))}
         </div>
       </section>

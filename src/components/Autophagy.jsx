@@ -1,17 +1,8 @@
 import React from 'react'
-import { Recycle, Brain, Shield, Clock, Coffee, Dumbbell, Moon, ArrowRight } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Recycle, Shield, Clock, Coffee, Dumbbell, Moon } from 'lucide-react'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Link } from 'react-router-dom'
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import { Button } from '@/components/ui/button'
+import { DialogCard } from '@/components/ui/DialogCard'
 import { autophagyData } from '@/data/autophagy'
 
 export function Autophagy() {
@@ -41,37 +32,13 @@ export function Autophagy() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {benefits.map((benefit, index) => (
-            <Dialog key={index}>
-              <DialogTrigger asChild>
-                <Card className="hover:shadow-lg transition-all cursor-pointer hover:scale-105 border-transparent hover:border-green-200">
-                  <CardHeader>
-                    <CardTitle className="flex items-center text-lg">
-                      {benefit.icon}
-                      <span className="ml-2">{benefit.name}</span>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-gray-500">Click to learn more</p>
-                  </CardContent>
-                </Card>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px]">
-                <DialogHeader>
-                  <DialogTitle className="flex items-center gap-2">
-                    {benefit.icon}
-                    {benefit.name}
-                  </DialogTitle>
-                  <DialogDescription>
-                    Key Benefit
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="py-4">
-                  <p className="text-gray-700 leading-relaxed">
-                    {benefit.details}
-                  </p>
-                </div>
-              </DialogContent>
-            </Dialog>
+            <DialogCard
+              key={index}
+              icon={benefit.icon}
+              title={benefit.name}
+              description={benefit.details}
+              searchQuery={`Longevity & Health Optimization > Aging > Autophagy > Benefits > ${benefit.name}`}
+            />
           ))}
         </div>
       </section>
@@ -93,67 +60,13 @@ export function Autophagy() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {stimulators.map((stimulator, index) => (
-            <Dialog key={index}>
-              <DialogTrigger asChild>
-                <Card className="hover:shadow-lg transition-all cursor-pointer hover:scale-[1.02] border-transparent hover:border-blue-200 h-full">
-                  <CardHeader>
-                    <CardTitle className="flex items-center justify-between">
-                      <div className="flex items-center">
-                        {stimulator.icon}
-                        <span className="ml-2">{stimulator.category}</span>
-                      </div>
-                      <ArrowRight className="h-5 w-5 text-gray-400" />
-                    </CardTitle>
-                    <CardDescription>{stimulator.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {stimulator.methods.slice(0, 3).map((method, methodIndex) => (
-                        <li key={methodIndex} className="flex items-center text-gray-700 text-sm">
-                          <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2 flex-shrink-0"></div>
-                          {method}
-                        </li>
-                      ))}
-                      {stimulator.methods.length > 3 && (
-                        <li className="text-sm text-gray-500 italic pl-4">
-                          + {stimulator.methods.length - 3} more...
-                        </li>
-                      )}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[600px]">
-                <DialogHeader>
-                  <DialogTitle className="flex items-center gap-2 text-2xl">
-                    {stimulator.icon}
-                    {stimulator.category}
-                  </DialogTitle>
-                  <DialogDescription className="text-lg">
-                    {stimulator.description}
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="py-4 space-y-6">
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Overview</h4>
-                    <p className="text-gray-700 leading-relaxed">
-                      {stimulator.details}
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Key Methods</h4>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                      {stimulator.methods.map((method, i) => (
-                        <li key={i} className="flex items-start text-gray-700 bg-gray-50 p-2 rounded">
-                          <div className="w-2 h-2 bg-green-500 rounded-full mr-2 mt-2 flex-shrink-0"></div>
-                          <span>{method}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </DialogContent>
-            </Dialog>
+            <DialogCard
+              key={index}
+              icon={stimulator.icon}
+              title={stimulator.category}
+              description={stimulator.details}
+              searchQuery={`Longevity & Health Optimization > Aging > Autophagy > Stimulators > ${stimulator.category}`}
+            />
           ))}
         </div>
       </section>
@@ -199,18 +112,12 @@ export function Autophagy() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {supplements.map((supplement, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="text-lg text-purple-700">
-                  <Link to={`https://www.google.com/search?q=${encodeURIComponent(supplement.searchQuery)}`} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                    {supplement.name}
-                  </Link>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{supplement.description}</p>
-              </CardContent>
-            </Card>
+            <DialogCard
+              key={index}
+              title={supplement.name}
+              description={supplement.description}
+              searchQuery={supplement.searchQuery}
+            />
           ))}
         </div>
       </section>
@@ -248,4 +155,3 @@ export function Autophagy() {
     </div>
   )
 }
-

@@ -1,6 +1,6 @@
 import React from 'react';
 import { antioxidantDefenseData } from '@/data/antioxidant-defense';
-import { InfoCard } from '@/components/ui/InfoCard';
+import { DialogCard } from '@/components/ui/DialogCard';
 
 export function AntioxidantDefense() {
   const { intro, antioxidantSystems, waysToSupport } = antioxidantDefenseData;
@@ -25,7 +25,7 @@ export function AntioxidantDefense() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {antioxidantSystems.map((system, index) => (
-            <InfoCard
+            <DialogCard
               key={index}
               icon={system.icon}
               title={system.name}
@@ -42,7 +42,7 @@ export function AntioxidantDefense() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {waysToSupport.map((way, index) => (
-            <InfoCard
+            <DialogCard
               key={index}
               icon={way.icon}
               title={way.name}

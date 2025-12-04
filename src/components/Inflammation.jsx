@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Flame, AlertTriangle, CheckCircle, X, Heart, Brain, Dumbbell, Moon } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { inflammationData } from '@/data/inflammation';
+import { DialogCard } from '@/components/ui/DialogCard';
 
 export function Inflammation() {
   const { causes, consequences, solutions } = inflammationData;
@@ -70,7 +70,7 @@ export function Inflammation() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {causes.map((cause, index) => (
-            <InfoCard
+            <DialogCard
               key={index}
               icon={<X className="h-5 w-5 text-red-500" />}
               title={cause.name}
@@ -87,7 +87,7 @@ export function Inflammation() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {consequences.map((consequence, index) => (
-            <InfoCard
+            <DialogCard
               key={index}
               icon={<AlertTriangle className="h-5 w-5 text-orange-500" />}
               title={consequence.name}
@@ -98,7 +98,7 @@ export function Inflammation() {
                   {consequence.severity.toUpperCase()} Severity
                 </Badge>
               </div>
-            </InfoCard>
+            </DialogCard>
           ))}
         </div>
       </section>
@@ -120,7 +120,7 @@ export function Inflammation() {
               <CardContent>
                 <div className="space-y-4">
                   {category.items.map((item, itemIndex) => (
-                    <InfoCard
+                    <DialogCard
                       key={itemIndex}
                       icon={<CheckCircle className="h-4 w-4 text-green-500" />}
                       title={item.name}

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Dumbbell, Heart, Activity, Bike, Waves, Sun } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Link } from 'react-router-dom';
 import { exerciseData } from '@/data/exercise';
+import { DialogCard } from '@/components/ui/DialogCard';
 
 export function Exercise() {
   const { exerciseBenefits, exerciseTypes } = exerciseData;
@@ -28,19 +28,13 @@ export function Exercise() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {exerciseBenefits.map((benefit, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <Link to={`https://www.google.com/search?q=${encodeURIComponent(benefit.searchQuery)}`} target="_blank" rel="noopener noreferrer">
-                <CardHeader>
-                  <div className="flex items-center mb-2">
-                    {benefit.icon}
-                    <CardTitle className="ml-3 text-xl">{benefit.name}</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{benefit.description}</p>
-                </CardContent>
-              </Link>
-            </Card>
+            <DialogCard
+              key={index}
+              icon={benefit.icon}
+              title={benefit.name}
+              description={benefit.description}
+              searchQuery={benefit.searchQuery}
+            />
           ))}
         </div>
       </section>
@@ -51,19 +45,13 @@ export function Exercise() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {exerciseTypes.map((type, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <Link to={`https://www.google.com/search?q=${encodeURIComponent(type.searchQuery)}`} target="_blank" rel="noopener noreferrer">
-                <CardHeader>
-                  <div className="flex items-center mb-2">
-                    {type.icon}
-                    <CardTitle className="ml-3 text-xl">{type.name}</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{type.description}</p>
-                </CardContent>
-              </Link>
-            </Card>
+            <DialogCard
+              key={index}
+              icon={type.icon}
+              title={type.name}
+              description={type.description}
+              searchQuery={type.searchQuery}
+            />
           ))}
         </div>
       </section>
@@ -99,6 +87,3 @@ export function Exercise() {
     </div>
   );
 }
-
-
-

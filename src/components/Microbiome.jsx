@@ -2,8 +2,8 @@ import React from 'react';
 import { Bug, Shield, Brain, Heart, CheckCircle, X } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Link } from 'react-router-dom';
 import { microbiomeData } from '@/data/microbiome';
+import { DialogCard } from '@/components/ui/DialogCard';
 
 export function Microbiome() {
   const { keyBacteria, harmfulFactors, beneficialFoods } = microbiomeData;
@@ -31,45 +31,30 @@ export function Microbiome() {
           Why Gut Health Matters
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card className="text-center hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <Shield className="h-12 w-12 text-blue-500 mx-auto mb-2" />
-              <CardTitle className="text-lg">Immune Health</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600">80% of immune system</p>
-            </CardContent>
-          </Card>
-
-          <Card className="text-center hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <Brain className="h-12 w-12 text-purple-500 mx-auto mb-2" />
-              <CardTitle className="text-lg">Brain Connection</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600">Gut-Brain Axis signaling</p>
-            </CardContent>
-          </Card>
-
-          <Card className="text-center hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <Heart className="h-12 w-12 text-red-500 mx-auto mb-2" />
-              <CardTitle className="text-lg">Inflammation Control</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600">Regulates inflammatory response</p>
-            </CardContent>
-          </Card>
-
-          <Card className="text-center hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <Bug className="h-12 w-12 text-green-500 mx-auto mb-2" />
-              <CardTitle className="text-lg">Metabolism</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600">Controls metabolic function</p>
-            </CardContent>
-          </Card>
+          <DialogCard
+            icon={<Shield className="h-12 w-12 text-blue-500 mx-auto mb-2" />}
+            title="Immune Health"
+            description="80% of immune system"
+            searchQuery="Longevity & Health Optimization > Microbiome Health > Immune Health"
+          />
+          <DialogCard
+            icon={<Brain className="h-12 w-12 text-purple-500 mx-auto mb-2" />}
+            title="Brain Connection"
+            description="Gut-Brain Axis signaling"
+            searchQuery="Longevity & Health Optimization > Microbiome Health > Brain Connection"
+          />
+          <DialogCard
+            icon={<Heart className="h-12 w-12 text-red-500 mx-auto mb-2" />}
+            title="Inflammation Control"
+            description="Regulates inflammatory response"
+            searchQuery="Longevity & Health Optimization > Microbiome Health > Inflammation Control"
+          />
+          <DialogCard
+            icon={<Bug className="h-12 w-12 text-green-500 mx-auto mb-2" />}
+            title="Metabolism"
+            description="Controls metabolic function"
+            searchQuery="Longevity & Health Optimization > Microbiome Health > Metabolism"
+          />
         </div>
       </section>
 
@@ -80,15 +65,10 @@ export function Microbiome() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {keyBacteria.map((bacteria, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="text-xl text-green-700">
-                  <Link to={`https://www.google.com/search?q=${encodeURIComponent(bacteria.searchQuery)}`} target="_blank" rel="noopener noreferrer">
-                    {bacteria.name}
-                  </Link>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
+            <DialogCard
+              key={index}
+              title={bacteria.name}
+              description={
                 <ul className="space-y-2">
                   {bacteria.benefits.map((benefit, benefitIndex) => (
                     <li key={benefitIndex} className="flex items-center text-gray-700">
@@ -97,8 +77,9 @@ export function Microbiome() {
                     </li>
                   ))}
                 </ul>
-              </CardContent>
-            </Card>
+              }
+              searchQuery={bacteria.searchQuery}
+            />
           ))}
         </div>
       </section>
@@ -134,13 +115,10 @@ export function Microbiome() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {beneficialFoods.map((foodGroup, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="text-lg text-green-700">
-                  {foodGroup.category}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
+            <DialogCard
+              key={index}
+              title={foodGroup.category}
+              description={
                 <ul className="space-y-2">
                   {foodGroup.items.map((item, itemIndex) => (
                     <li key={itemIndex} className="flex items-center text-gray-700">
@@ -149,8 +127,9 @@ export function Microbiome() {
                     </li>
                   ))}
                 </ul>
-              </CardContent>
-            </Card>
+              }
+              searchQuery={`Longevity & Health Optimization > Microbiome Health > Beneficial Foods > ${foodGroup.category}`}
+            />
           ))}
         </div>
       </section>
@@ -229,5 +208,3 @@ export function Microbiome() {
     </div>
   );
 }
-
-

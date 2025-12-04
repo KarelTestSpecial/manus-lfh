@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Bone, Scale, Shield, Brain, Heart, Dumbbell, AlertTriangle, X } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { Bone, Scale, Shield, Brain, Heart, Dumbbell, AlertTriangle } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { DialogCard } from '@/components/ui/DialogCard';
 
 export function BoneHealth() {
   const risks = [
@@ -91,26 +90,18 @@ export function BoneHealth() {
             </CardContent>
           </Card>
 
-          <Card className="border-red-200 bg-red-50">
-            <CardHeader>
-              <CardTitle className="text-red-700 flex items-center">
-                <AlertTriangle className="h-6 w-6 mr-2" />
-                Consequences of Poor Bone Health
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
+          <DialogCard
+            icon={<AlertTriangle className="h-6 w-6 mr-2" />}
+            title="Consequences of Poor Bone Health"
+            description={
               <ul className="space-y-2 text-gray-700">
                 {risks.map((risk, index) => (
-                  <li key={index}>
-                    <Link to={`https://www.google.com/search?q=${encodeURIComponent(risk.searchQuery)}`} target="_blank" rel="noopener noreferrer" className="flex items-center hover:underline">
-                      <X className="h-4 w-4 text-red-500 mr-2 flex-shrink-0" />
-                      {risk.name}
-                    </Link>
-                  </li>
+                  <li key={index}>{risk.name}</li>
                 ))}
               </ul>
-            </CardContent>
-          </Card>
+            }
+            searchQuery="Longevity & Health Optimization > Bone Health > Risks"
+          />
         </div>
       </section>
 
@@ -119,21 +110,13 @@ export function BoneHealth() {
         <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Bone's Role in the Body</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {boneRoles.map((role, index) => (
-            <Card key={index} className="border-green-200 bg-green-50">
-              <CardHeader>
-                <CardTitle className="text-green-700 flex items-center">
-                  <Link to={`https://www.google.com/search?q=${encodeURIComponent(role.searchQuery)}`} target="_blank" rel="noopener noreferrer" className="flex items-center hover:underline">
-                    {role.icon}
-                    {role.name}
-                  </Link>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700">
-                  {role.description}
-                </p>
-              </CardContent>
-            </Card>
+            <DialogCard
+              key={index}
+              icon={role.icon}
+              title={role.name}
+              description={role.description}
+              searchQuery={role.searchQuery}
+            />
           ))}
         </div>
       </section>
@@ -145,19 +128,13 @@ export function BoneHealth() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {buildingStrategies.map((strategy, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                   <Link to={`https://www.google.com/search?q=${encodeURIComponent(strategy.searchQuery)}`} target="_blank" rel="noopener noreferrer" className="flex items-center hover:underline">
-                    {strategy.icon}
-                    <span className="ml-2">{strategy.name}</span>
-                  </Link>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{strategy.description}</p>
-              </CardContent>
-            </Card>
+            <DialogCard
+              key={index}
+              icon={strategy.icon}
+              title={strategy.name}
+              description={strategy.description}
+              searchQuery={strategy.searchQuery}
+            />
           ))}
         </div>
       </section>

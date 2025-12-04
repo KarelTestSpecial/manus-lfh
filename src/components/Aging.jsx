@@ -3,7 +3,7 @@ import { Clock, Target } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { agingData } from '@/data/aging';
-import { InfoCard } from '@/components/ui/InfoCard';
+import { DialogCard } from '@/components/ui/DialogCard';
 
 export function Aging() {
   const { declineFactors, healthyAgingInfluences, keyInsights } = agingData;
@@ -57,7 +57,7 @@ export function Aging() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {declineFactors.map((factor, index) => (
-            <InfoCard
+            <DialogCard
               key={index}
               icon={factor.icon}
               title={factor.name}
@@ -75,7 +75,7 @@ export function Aging() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {healthyAgingInfluences.map((influence, index) => (
-            <InfoCard
+            <DialogCard
               key={index}
               icon={influence.icon}
               title={influence.name}
@@ -90,7 +90,7 @@ export function Aging() {
                   {influence.impact} Impact
                 </Badge>
               </div>
-            </InfoCard>
+            </DialogCard>
           ))}
         </div>
       </section>
@@ -104,7 +104,7 @@ export function Aging() {
           {keyInsights.map((insight, index) => {
             const colors = getColorClasses(insight.colorClass);
             return (
-              <InfoCard
+              <DialogCard
                 key={index}
                 icon={insight.icon}
                 title={insight.title}
@@ -146,5 +146,3 @@ export function Aging() {
     </div>
   );
 }
-
-
