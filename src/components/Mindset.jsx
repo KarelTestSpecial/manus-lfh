@@ -1,55 +1,12 @@
 import React from 'react';
-import { Brain, Heart, Smile, Users, Zap, Anchor, Sun } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Brain, Users } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { DialogCard } from '@/components/ui/DialogCard';
+import { mindsetData } from '@/data/mindset';
 
 export function Mindset() {
-  const pillars = [
-    {
-      title: "Stress Management",
-      icon: <Zap className="h-8 w-8 text-yellow-500" />,
-      description: "Chronic stress increases cortisol, inflammation, and accelerates aging. Learning to manage it is crucial."
-    },
-    {
-      title: "Purpose (Ikigai)",
-      icon: <Anchor className="h-8 w-8 text-blue-500" />,
-      description: "Having a sense of purpose is strongly linked to longevity. It gives you a reason to wake up every morning."
-    },
-    {
-      title: "Social Connection",
-      icon: <Users className="h-8 w-8 text-green-500" />,
-      description: "Loneliness is as damaging to health as smoking. Strong social bonds are a key predictor of a long life."
-    },
-    {
-      title: "Optimism & Gratitude",
-      icon: <Smile className="h-8 w-8 text-orange-500" />,
-      description: "Positive outlook and gratitude practices correlate with better cardiovascular health and immune function."
-    }
-  ];
-
-  const practices = [
-    {
-      name: "Meditation / Mindfulness",
-      description: "Reduces stress, improves focus, and physically changes the brain (neuroplasticity).",
-      time: "10-20 mins/day"
-    },
-    {
-      name: "Breathwork",
-      description: "Controlled breathing (e.g., 4-7-8, Box Breathing) can instantly activate the parasympathetic nervous system.",
-      time: "5 mins/day"
-    },
-    {
-      name: "Gratitude Journaling",
-      description: "Writing down 3 things you are grateful for each day rewires the brain to scan for positives.",
-      time: "5 mins/day"
-    },
-    {
-      name: "Cognitive Reframing",
-      description: "Challenging negative thoughts and viewing obstacles as opportunities (Stoicism).",
-      time: "Ongoing"
-    }
-  ];
+  const { pillars, practices } = mindsetData;
 
   return (
     <div className="min-h-screen py-8 px-4 max-w-7xl mx-auto">
@@ -79,7 +36,7 @@ export function Mindset() {
               icon={pillar.icon}
               title={pillar.title}
               description={pillar.description}
-              searchQuery={`Longevity & Health Optimization > Mindset & Mental Health > Pillars > ${pillar.title}`}
+              searchQuery={pillar.searchQuery}
             />
           ))}
         </div>
@@ -113,7 +70,7 @@ export function Mindset() {
               key={index}
               title={practice.name}
               description={practice.description}
-              searchQuery={`Longevity & Health Optimization > Mindset & Mental Health > Daily Practices > ${practice.name}`}
+              searchQuery={practice.searchQuery}
             >
               <div className="mt-2">
                 <Badge variant="outline">{practice.time}</Badge>

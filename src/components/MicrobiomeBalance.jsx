@@ -1,19 +1,10 @@
 import React from 'react';
-import { Microscope, Leaf, Zap } from 'lucide-react';
+import { Microscope } from 'lucide-react';
 import { DialogCard } from '@/components/ui/DialogCard';
+import { microbiomeBalanceData } from '@/data/microbiome-balance';
 
 export function MicrobiomeBalance() {
-  const microbiomeFunctions = [
-    { name: "Digestion and Nutrient Absorption", description: "Breaks down food and produces essential vitamins.", searchQuery: "Longevity & Health Optimization > Defense Systems > Microbiome Balance > Digestion and Nutrient Absorption" },
-    { name: "Immune System Modulation", description: "Trains and supports the immune system.", searchQuery: "Longevity & Health Optimization > Defense Systems > Microbiome Balance > Immune System Modulation" },
-    { name: "Gut-Brain Axis", description: "Communicates with the brain to influence mood and health.", searchQuery: "Longevity & Health Optimization > Defense Systems > Microbiome Balance > Gut-Brain Axis" }
-  ];
-
-  const waysToSupportMicrobiome = [
-    { name: "Eat a diverse range of plant foods", icon: <Leaf className="h-6 w-6 text-green-500" /> },
-    { name: "Consume prebiotics and probiotics", icon: <Zap className="h-6 w-6 text-yellow-500" /> },
-    { name: "Avoid unnecessary antibiotics", icon: <Microscope className="h-6 w-6 text-blue-500" /> }
-  ];
+  const { microbiomeFunctions, waysToSupportMicrobiome } = microbiomeBalanceData;
 
   return (
     <div className="min-h-screen py-8 px-4 max-w-7xl mx-auto">
@@ -55,7 +46,7 @@ export function MicrobiomeBalance() {
               key={index}
               icon={way.icon}
               title={way.name}
-              searchQuery={`Longevity & Health Optimization > Defense Systems > Microbiome Balance > Support > ${way.name}`}
+              searchQuery={way.searchQuery}
             />
           ))}
         </div>

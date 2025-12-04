@@ -1,29 +1,11 @@
 import React from 'react'
 import { Apple, CheckCircle, X, Heart, Leaf } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { DialogCard } from '@/components/ui/DialogCard'
+import { nutritionData } from '@/data/nutrition'
 
 export function Nutrition() {
-  const goodFoods = [
-    "Berries (Antioxidants)",
-    "Brassica Vegetables (Sulforaphane)",
-    "Coffee (Caffeic Acid)",
-    "Dark Chocolate (≥80% Cacao)",
-    "Extra Virgin Olive Oil",
-    "Leafy Greens (Nitrates)",
-    "Omega-3 Fatty Acids",
-    "Pomegranate",
-    "Green Tea"
-  ]
-
-  const avoidFoods = [
-    "Added Sugar/Refined Carbs",
-    "Ultra-Processed Foods",
-    "Excess Salt/Sodium",
-    "Fried Foods",
-    "Processed Meats",
-    "Industrial Seed Oils"
-  ]
+  const { goodFoods, avoidFoods } = nutritionData;
 
   return (
     <div className="min-h-screen py-8 px-4 max-w-7xl mx-auto">
@@ -50,8 +32,8 @@ export function Nutrition() {
               {goodFoods.map((food, index) => (
                 <DialogCard
                   key={index}
-                  title={food}
-                  searchQuery={`Longevity & Health Optimization > Nutrition & Diet > Foods to Emphasize > ${food}`}
+                  title={food.name}
+                  searchQuery={food.searchQuery}
                 />
               ))}
             </div>
@@ -70,8 +52,8 @@ export function Nutrition() {
               {avoidFoods.map((food, index) => (
                 <DialogCard
                   key={index}
-                  title={food}
-                  searchQuery={`Longevity & Health Optimization > Nutrition & Diet > Foods to Limit/Avoid > ${food}`}
+                  title={food.name}
+                  searchQuery={food.searchQuery}
                 />
               ))}
             </div>
