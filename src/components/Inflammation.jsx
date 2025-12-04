@@ -30,22 +30,38 @@ export function Inflammation() {
           Acute vs. Chronic Inflammation
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Acute Inflammation Card */}
           <Card className="border-green-200 bg-green-50">
-      {/* Warning Section */}
-      <Card className="mb-12 bg-red-50 border-red-200">
-        <CardHeader>
-          <CardTitle className="flex items-center text-2xl text-red-700">
-            <AlertTriangle className="h-8 w-8 mr-3" />
-            The Silent Killer
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-lg text-gray-700">
-            Unlike acute inflammation (which heals wounds), <strong>chronic inflammation</strong> simmers 
-            in the background, damaging tissues and organs over decades without obvious symptoms.
-          </p>
-        </CardContent>
-      </Card>
+            <CardHeader>
+              <CardTitle className="flex items-center text-2xl text-green-700">
+                <CheckCircle className="h-8 w-8 mr-3" />
+                Acute Inflammation: The Body's Protector
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-lg text-gray-700">
+                Acute inflammation is a <strong>short-term, beneficial process</strong> initiated by the body's immune system in response to injury or infection. It helps to heal wounds, fight off pathogens, and remove damaged cells. This type of inflammation is crucial for survival and typically resolves once the threat is neutralized.
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Chronic Inflammation Card (previously "Warning Section") */}
+          <Card className="bg-red-50 border-red-200">
+            <CardHeader>
+              <CardTitle className="flex items-center text-2xl text-red-700">
+                <AlertTriangle className="h-8 w-8 mr-3" />
+                Chronic Inflammation: The Silent Killer
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-lg text-gray-700">
+                Unlike acute inflammation (which heals wounds), <strong>chronic inflammation</strong> simmers
+                in the background, damaging tissues and organs over decades without obvious symptoms.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
 
       {/* Causes */}
       <section className="mb-12">
