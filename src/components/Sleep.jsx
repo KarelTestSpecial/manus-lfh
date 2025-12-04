@@ -58,7 +58,7 @@ export function Sleep() {
       searchQuery: "Longevity & Health Optimization > Sleep Optimization > Sleep Hygiene > Wind Down"
     },
     {
-      title: "Earplugs",
+      title: "Noise Reduction",
       icon: <Ear className="h-5 w-5 text-gray-500" />,
       tip: "Blocking out noise is crucial for maintaining deep, uninterrupted sleep, leading to better rest and improved daytime function.",
       searchQuery: "benefits of sleeping with earplugs"
