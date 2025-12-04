@@ -7,27 +7,27 @@ import { Separator } from '@/components/ui/separator';
 
 export function Inflammation() {
   const causes = [
-    "Excess Visceral Fat",
-    "High Blood Sugar",
-    "AGES (Advanced Glycation End Products)",
-    "Stress",
-    "Poor Sleep",
-    "Oxidative Stress",
-    "Damaged Mitochondria",
-    "Certain Toxins/Chemicals (Microplastics)",
-    "Imbalances in Gut Bacteria",
-    "Lack of Exercise",
-    "Alcohol",
-    "Smoking/Vaping"
+    { name: "Excess Visceral Fat", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Causes > Excess Visceral Fat" },
+    { name: "High Blood Sugar", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Causes > High Blood Sugar" },
+    { name: "AGES (Advanced Glycation End Products)", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Causes > AGES (Advanced Glycation End Products)" },
+    { name: "Stress", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Causes > Stress" },
+    { name: "Poor Sleep", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Causes > Poor Sleep" },
+    { name: "Oxidative Stress", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Causes > Oxidative Stress" },
+    { name: "Damaged Mitochondria", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Causes > Damaged Mitochondria" },
+    { name: "Certain Toxins/Chemicals (Microplastics)", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Causes > Certain Toxins/Chemicals (Microplastics)" },
+    { name: "Imbalances in Gut Bacteria", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Causes > Imbalances in Gut Bacteria" },
+    { name: "Lack of Exercise", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Causes > Lack of Exercise" },
+    { name: "Alcohol", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Causes > Alcohol" },
+    { name: "Smoking/Vaping", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Causes > Smoking/Vaping" }
   ];
 
   const consequences = [
-    { name: "Chronic Disease", severity: "high" },
-    { name: "Cancer Growth", severity: "high" },
-    { name: "Blood Vessel Damage", severity: "high" },
-    { name: "Increased Pain (Arthralgia)", severity: "medium" },
-    { name: "Metabolic Dysfunction", severity: "high" },
-    { name: "Neurological Issues", severity: "high" }
+    { name: "Chronic Disease", severity: "high", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Health Consequences > Chronic Disease" },
+    { name: "Cancer Growth", severity: "high", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Health Consequences > Cancer Growth" },
+    { name: "Blood Vessel Damage", severity: "high", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Health Consequences > Blood Vessel Damage" },
+    { name: "Increased Pain (Arthralgia)", severity: "medium", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Health Consequences > Increased Pain (Arthralgia)" },
+    { name: "Metabolic Dysfunction", severity: "high", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Health Consequences > Metabolic Dysfunction" },
+    { name: "Neurological Issues", severity: "high", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Health Consequences > Neurological Issues" }
   ];
 
   const solutions = [
@@ -35,32 +35,32 @@ export function Inflammation() {
       category: "Diet",
       icon: <Heart className="h-5 w-5 text-green-500" />,
       items: [
-        "Anti-inflammatory foods",
-        "Less added sugar/refined carbs",
-        "Less ultra-processed foods",
-        "Omega-3 fatty acids",
-        "Polyphenol-rich foods"
+        { name: "Anti-inflammatory foods", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Reducing Inflammation > Diet > Anti-inflammatory foods" },
+        { name: "Less added sugar/refined carbs", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Reducing Inflammation > Diet > Less added sugar/refined carbs" },
+        { name: "Less ultra-processed foods", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Reducing Inflammation > Diet > Less ultra-processed foods" },
+        { name: "Omega-3 fatty acids", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Reducing Inflammation > Diet > Omega-3 fatty acids" },
+        { name: "Polyphenol-rich foods", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Reducing Inflammation > Diet > Polyphenol-rich foods" }
       ]
     },
     {
       category: "Lifestyle",
       icon: <Dumbbell className="h-5 w-5 text-blue-500" />,
       items: [
-        "Moderate exercise",
-        "Getting enough sleep",
-        "Managing stress",
-        "Maintaining healthy weight"
+        { name: "Moderate exercise", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Reducing Inflammation > Lifestyle > Moderate exercise" },
+        { name: "Getting enough sleep", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Reducing Inflammation > Lifestyle > Getting enough sleep" },
+        { name: "Managing stress", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Reducing Inflammation > Lifestyle > Managing stress" },
+        { name: "Maintaining healthy weight", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Reducing Inflammation > Lifestyle > Maintaining healthy weight" }
       ]
     },
     {
       category: "Specific Foods",
       icon: <CheckCircle className="h-5 w-5 text-purple-500" />,
       items: [
-        "Brassica vegetables (Sulforaphane)",
-        "Curcumin/Turmeric",
-        "Pomegranate juice",
-        "Extra virgin olive oil",
-        "Green tea"
+        { name: "Brassica vegetables (Sulforaphane)", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Reducing Inflammation > Specific Foods > Brassica vegetables (Sulforaphane)" },
+        { name: "Curcumin/Turmeric", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Reducing Inflammation > Specific Foods > Curcumin/Turmeric" },
+        { name: "Pomegranate juice", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Reducing Inflammation > Specific Foods > Pomegranate juice" },
+        { name: "Extra virgin olive oil", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Reducing Inflammation > Specific Foods > Extra virgin olive oil" },
+        { name: "Green tea", searchQuery: "Longevity & Health Optimization > Understanding Inflammation > Reducing Inflammation > Specific Foods > Green tea" }
       ]
     },
     {
@@ -152,9 +152,11 @@ export function Inflammation() {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {causes.map((cause, index) => (
-                <Badge key={index} variant="destructive" className="text-center p-3">
-                  {cause}
-                </Badge>
+                <Link to={`https://www.google.com/search?q=${encodeURIComponent(cause.searchQuery)}`} target="_blank" rel="noopener noreferrer" key={index}>
+                  <Badge variant="destructive" className="text-center p-3 w-full">
+                    {cause.name}
+                  </Badge>
+                </Link>
               ))}
             </div>
           </CardContent>
@@ -177,7 +179,9 @@ export function Inflammation() {
                 <CardTitle className={`${
                   consequence.severity === 'high' ? 'text-red-700' : 'text-orange-700'
                 }`}>
-                  {consequence.name}
+                  <Link to={`https://www.google.com/search?q=${encodeURIComponent(consequence.searchQuery)}`} target="_blank" rel="noopener noreferrer">
+                    {consequence.name}
+                  </Link>
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -210,17 +214,10 @@ export function Inflammation() {
                 <ul className="space-y-2">
                   {solution.items.map((item, itemIndex) => (
                     <li key={itemIndex} className="flex items-center text-gray-700">
-                      {solution.category === "Supplements" ? (
-                        <Link to={`https://www.google.com/search?q=${encodeURIComponent(item.searchQuery)}`} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                          <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
-                          {item.name}
-                        </Link>
-                      ) : (
-                        <>
-                          <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
-                          {item}
-                        </>
-                      )}
+                      <Link to={`https://www.google.com/search?q=${encodeURIComponent(item.searchQuery)}`} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                        {item.name}
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -263,5 +260,3 @@ export function Inflammation() {
     </div>
   );
 }
-
-

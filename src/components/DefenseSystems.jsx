@@ -15,7 +15,7 @@ export function DefenseSystems() {
       name: 'Ontstekingsreactie',
       description: 'Een gecoördineerde respons om schade te herstellen en indringers te elimineren.',
       icon: Zap,
-      link: '/defense-systems/inflammation',
+      link: '/inflammation',
     },
     {
       name: 'Detoxificatie',
