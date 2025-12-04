@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Heart, Brain, Dna, Zap, Shield, Activity } from 'lucide-react'
+import { ArrowDown, ArrowRight, Heart, Brain, Dna, Zap, Shield, Activity } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import heroImage from '../assets/8iYQd9Va36Vo.jpg'
 
 export function Home() {
+  const keyTopicsSectionRef = useRef(null)
+
+  const handleScroll = () => {
+    keyTopicsSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   const keyTopics = [
     {
       icon: <Heart className="h-8 w-8 text-red-500" />,
@@ -66,23 +72,16 @@ export function Home() {
             and add quality to your years through science-backed approaches.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white">
-              <Link to="/aging" className="flex items-center">
-                Start Your Journey
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-gray-900">
-              <Link to="/nutrition">
-                Explore Nutrition
-              </Link>
+            <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white" onClick={handleScroll}>
+              Start Your Journey
+              <ArrowDown className="ml-2 h-5 w-5" />
             </Button>
           </div>
         </div>
       </section>
 
       {/* Key Topics Section */}
-      <section className="py-20 px-4 max-w-7xl mx-auto">
+      <section ref={keyTopicsSectionRef} className="py-20 px-4 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Key Areas of Health Optimization
