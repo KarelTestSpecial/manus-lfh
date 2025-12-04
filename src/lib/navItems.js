@@ -1,18 +1,7 @@
 const navItems = [
   { path: '/', label: 'Home' },
   { path: '/aging', label: 'Aging' },
-  { 
-    path: '/defense-systems', 
-    label: 'Defense Systems',
-    children: [
-      { path: '/defense-systems', label: 'Overview' },
-      { path: '/defense-systems/immune-system', label: 'Immune System' },
-      { path: '/defense-systems/detoxification', label: 'Detoxification' },
-      { path: '/defense-systems/antioxidant-defense', label: 'Antioxidant Defense' },
-      { path: '/defense-systems/cell-repair', label: 'Cell Repair' },
-      { path: '/defense-systems/microbiome-balance', label: 'Microbiome Balance' },
-    ]
-  },
+  { path: '/defense-systems', label: 'Defense Systems' },
   { path: '/inflammation', label: 'Inflammation' },
   { path: '/autophagy', label: 'Autophagy' },
   { path: '/mitochondria', label: 'Mitochondria' },
