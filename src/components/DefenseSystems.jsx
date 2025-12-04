@@ -6,38 +6,38 @@ import { Link, Outlet, useOutlet } from 'react-router-dom';
 export function DefenseSystems() {
   const defenseSystems = [
     {
-      name: 'Immuunsysteem',
-      description: 'De primaire verdediging van het lichaam tegen ziekteverwekkers.',
+      name: 'Immune System',
+      description: 'The body\'s primary defense against pathogens.',
       icon: <Shield />,
       link: '/defense-systems/immune-system',
     },
     {
-      name: 'Ontstekingsreactie',
-      description: 'Een gecoördineerde respons om schade te herstellen en indringers te elimineren.',
+      name: 'Inflammatory Response',
+      description: 'A coordinated response to repair damage and eliminate invaders.',
       icon: <Zap />,
       link: '/inflammation',
     },
     {
-      name: 'Detoxificatie',
-      description: 'Het proces van het neutraliseren en elimineren van gifstoffen uit het lichaam.',
+      name: 'Detoxification',
+      description: 'The process of neutralizing and eliminating toxins from the body.',
       icon: <Syringe />,
       link: '/defense-systems/detoxification',
     },
     {
-      name: 'Antioxidante Defensie',
-      description: 'Bescherming tegen oxidatieve stress en celbeschadiging.',
+      name: 'Antioxidant Defense',
+      description: 'Protection against oxidative stress and cellular damage.',
       icon: <Leaf />,
       link: '/defense-systems/antioxidant-defense',
     },
     {
-      name: 'Celreparatie en Regeneratie',
-      description: 'Mechanismen voor het herstellen van beschadigde cellen en weefsels.',
+      name: 'Cell Repair and Regeneration',
+      description: 'Mechanisms for repairing damaged cells and tissues.',
       icon: <Dna />,
       link: '/defense-systems/cell-repair',
     },
     {
-      name: 'Microbioom Balans',
-      description: 'De rol van gunstige micro-organismen in de bescherming van de gastheer.',
+      name: 'Microbiome Balance',
+      description: 'The role of beneficial microorganisms in protecting the host.',
       icon: <Microscope />,
       link: '/defense-systems/microbiome-balance',
     },
@@ -49,7 +49,7 @@ export function DefenseSystems() {
     <Outlet />
   ) : (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-12">Verdedigingssystemen</h1>
+      <h1 className="text-4xl font-bold text-center mb-12">Defense Systems</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {defenseSystems.map((system, index) => (
           <Link to={system.link} key={index} className="block hover:no-underline">

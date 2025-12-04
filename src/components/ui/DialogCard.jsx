@@ -42,12 +42,12 @@ export function DialogCard({ icon, title, description, searchQuery, children, cl
         </DialogHeader>
         {searchQuery && (
           <div className="pt-4 border-t">
-            <Button asChild>
+            <Button asChild className="bg-blue-600 text-white hover:bg-blue-700 transition-colors">
                 <Link
                 to={`https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:underline flex items-center text-sm"
+                className="flex items-center text-sm"
               >
                 Search on Google <ArrowRight className="ml-1 h-3 w-3" />
               </Link>
