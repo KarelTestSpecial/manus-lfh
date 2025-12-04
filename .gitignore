@@ -121,3 +121,6 @@ dist
 dist/
 dist-ssr/
 *.local
+
+# Test results
+test-results/

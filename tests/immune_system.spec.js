@@ -16,5 +16,5 @@ test('Immune System page has content and is fully visible', async ({ page }) => 
   await expect(page.locator('h2:has-text("Ways to Support a Healthy Immune System")')).toBeVisible();
 
   // Take a screenshot of the entire page
-  await page.screenshot({ path: '/home/jules/verification/immune_system.png', fullPage: true });
+  await page.screenshot({ path: 'tests/immune_system.png', fullPage: true });
 });
