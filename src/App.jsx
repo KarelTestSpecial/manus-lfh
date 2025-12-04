@@ -10,6 +10,11 @@ import { Microbiome } from './components/Microbiome';
 import { Nutrition } from './components/Nutrition';
 import { BoneHealth } from './components/BoneHealth';
 import { DefenseSystems } from './components/DefenseSystems';
+import { ImmuneSystem } from './components/ImmuneSystem';
+import { Detoxification } from './components/Detoxification';
+import { AntioxidantDefense } from './components/AntioxidantDefense';
+import { CellRepair } from './components/CellRepair';
+import { MicrobiomeBalance } from './components/MicrobiomeBalance';
 import { Circulation } from './components/Circulation';
 import { Exercise } from './components/Exercise';
 import { Metabolism } from './components/Metabolism';
@@ -36,6 +41,11 @@ function App() {
             <Route path="/nutrition" element={<Nutrition />} />
             <Route path="/bone-health" element={<BoneHealth />} />
             <Route path="/defense-systems" element={<DefenseSystems />} />
+            <Route path="/defense-systems/immune-system" element={<ImmuneSystem />} />
+            <Route path="/defense-systems/detoxification" element={<Detoxification />} />
+            <Route path="/defense-systems/antioxidant-defense" element={<AntioxidantDefense />} />
+            <Route path="/defense-systems/cell-repair" element={<CellRepair />} />
+            <Route path="/defense-systems/microbiome-balance" element={<MicrobiomeBalance />} />
             <Route path="/circulation" element={<Circulation />} />
             <Route path="/exercise" element={<Exercise />} />
             <Route path="/metabolism" element={<Metabolism />} />
