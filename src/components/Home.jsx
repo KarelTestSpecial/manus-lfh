@@ -148,25 +148,24 @@ export function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {keyTopics.map((topic, index) => (
-            <Card key={index} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <CardHeader>
-                <div className="flex items-center space-x-3 mb-2">
-                  {topic.icon}
-                  <CardTitle className="text-xl">{topic.title}</CardTitle>
-                </div>
-                <CardDescription className="text-gray-600">
-                  {topic.description}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link to={topic.link}>
-                  <Button variant="ghost" className="w-full group-hover:bg-green-50 group-hover:text-green-700">
-                    Learn More
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
+            <Link to={topic.link} key={index} className="block group">
+              <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-green-500">
+                <CardHeader>
+                  <div className="flex items-center space-x-3 mb-2">
+                    {topic.icon}
+                    <CardTitle className="text-xl">{topic.title}</CardTitle>
+                  </div>
+                  <CardDescription className="text-gray-600">
+                    {topic.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-sm text-green-600 font-semibold group-hover:underline">
+                    Learn More <ArrowRight className="inline-block ml-1 h-4 w-4" />
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </section>
@@ -182,10 +181,8 @@ export function Home() {
             to continue your journey of optimization.
           </p>
           <div className="flex justify-center">
-            <Button size="lg" variant="outline" className="border-white text-gray-900 hover:bg-white hover:text-gray-700" data-testid="other-health-button">
-              <Link to="/other-health">
-                Other Health
-              </Link>
+            <Button asChild size="lg" className="bg-white text-gray-800 hover:bg-gray-200" data-testid="other-health-button">
+              <Link to="/other-health">Other Health</Link>
             </Button>
           </div>
         </div>
