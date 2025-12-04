@@ -1,7 +1,6 @@
 import React from 'react';
 import { Heart, Droplet, Shield, Activity } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Link } from 'react-router-dom';
+import { DialogCard } from '@/components/ui/DialogCard';
 
 export function Circulation() {
   const keyAspects = [
@@ -48,25 +47,15 @@ export function Circulation() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {keyAspects.map((aspect, index) => (
-          <Card key={index} className="hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <div className="flex items-center mb-2">
-                {aspect.icon}
-                <CardTitle className="ml-3 text-xl">
-                  <Link to={`https://www.google.com/search?q=${encodeURIComponent(aspect.searchQuery)}`} target="_blank" rel="noopener noreferrer">
-                    {aspect.name}
-                  </Link>
-                </CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600">{aspect.description}</p>
-            </CardContent>
-          </Card>
+          <DialogCard
+            key={index}
+            icon={aspect.icon}
+            title={aspect.name}
+            description={aspect.description}
+            searchQuery={aspect.searchQuery}
+          />
         ))}
       </div>
     </div>
   );
 }
-
-

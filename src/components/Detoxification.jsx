@@ -1,8 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Syringe, Leaf, Zap, Shield } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { DialogCard } from '@/components/ui/DialogCard';
 
 export function Detoxification() {
   const detoxificationPathways = [
@@ -39,18 +37,12 @@ export function Detoxification() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           {detoxificationPathways.map((pathway, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center text-lg">
-                  <Link to={`https://www.google.com/search?q=${encodeURIComponent(pathway.searchQuery)}`} target="_blank" rel="noopener noreferrer" className="ml-2 hover:underline">
-                    {pathway.name}
-                  </Link>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{pathway.description}</p>
-              </CardContent>
-            </Card>
+            <DialogCard
+              key={index}
+              title={pathway.name}
+              description={pathway.description}
+              searchQuery={pathway.searchQuery}
+            />
           ))}
         </div>
       </section>
@@ -61,14 +53,12 @@ export function Detoxification() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {waysToSupportDetox.map((way, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center text-lg">
-                  {way.icon}
-                  <span className="ml-2">{way.name}</span>
-                </CardTitle>
-              </CardHeader>
-            </Card>
+            <DialogCard
+              key={index}
+              icon={way.icon}
+              title={way.name}
+              searchQuery={`Longevity & Health Optimization > Defense Systems > Detoxification > Support > ${way.name}`}
+            />
           ))}
         </div>
       </section>

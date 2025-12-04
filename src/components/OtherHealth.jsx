@@ -1,7 +1,6 @@
 import React from 'react';
 import { PlusCircle, Heart, Brain, Shield } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Link } from 'react-router-dom';
+import { DialogCard } from '@/components/ui/DialogCard';
 
 export function OtherHealth() {
   const otherHealthTopics = [
@@ -47,23 +46,15 @@ export function OtherHealth() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {otherHealthTopics.map((topic, index) => (
-          <Card key={index} className="hover:shadow-lg transition-shadow">
-            <Link to={`https://www.google.com/search?q=${encodeURIComponent(topic.searchQuery)}`} target="_blank" rel="noopener noreferrer">
-              <CardHeader>
-                <div className="flex items-center mb-2">
-                  {topic.icon}
-                  <CardTitle className="ml-3 text-xl">{topic.name}</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{topic.description}</p>
-              </CardContent>
-            </Link>
-          </Card>
+          <DialogCard
+            key={index}
+            icon={topic.icon}
+            title={topic.name}
+            description={topic.description}
+            searchQuery={topic.searchQuery}
+          />
         ))}
       </div>
     </div>
   );
 }
-
-

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Microscope, Leaf, Zap } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { DialogCard } from '@/components/ui/DialogCard';
 
 export function MicrobiomeBalance() {
   const microbiomeFunctions = [
@@ -36,18 +35,12 @@ export function MicrobiomeBalance() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {microbiomeFunctions.map((func, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center text-lg">
-                  <Link to={`https://www.google.com/search?q=${encodeURIComponent(func.searchQuery)}`} target="_blank" rel="noopener noreferrer" className="ml-2 hover:underline">
-                    {func.name}
-                  </Link>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{func.description}</p>
-              </CardContent>
-            </Card>
+            <DialogCard
+              key={index}
+              title={func.name}
+              description={func.description}
+              searchQuery={func.searchQuery}
+            />
           ))}
         </div>
       </section>
@@ -58,14 +51,12 @@ export function MicrobiomeBalance() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {waysToSupportMicrobiome.map((way, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center text-lg">
-                  {way.icon}
-                  <span className="ml-2">{way.name}</span>
-                </CardTitle>
-              </CardHeader>
-            </Card>
+            <DialogCard
+              key={index}
+              icon={way.icon}
+              title={way.name}
+              searchQuery={`Longevity & Health Optimization > Defense Systems > Microbiome Balance > Support > ${way.name}`}
+            />
           ))}
         </div>
       </section>

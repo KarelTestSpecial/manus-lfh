@@ -3,6 +3,7 @@ import { Zap, Snowflake, Dumbbell, Clock, Lightbulb, Heart } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { mitochondriaData } from '@/data/mitochondria'
+import { DialogCard } from '@/components/ui/DialogCard'
 
 export function Mitochondria() {
   const { improvements, supportiveCompounds, keyFacts } = mitochondriaData
@@ -31,17 +32,13 @@ export function Mitochondria() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {keyFacts.map((fact, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center text-xl">
-                  {fact.icon}
-                  <span className="ml-3">{fact.title}</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{fact.description}</p>
-              </CardContent>
-            </Card>
+            <DialogCard
+              key={index}
+              icon={fact.icon}
+              title={fact.title}
+              description={fact.description}
+              searchQuery={`Longevity & Health Optimization > Mitochondria > Key Facts > ${fact.title}`}
+            />
           ))}
         </div>
       </section>
@@ -85,17 +82,13 @@ export function Mitochondria() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {improvements.map((improvement, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                  {improvement.icon}
-                  <span className="ml-2">{improvement.method}</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{improvement.description}</p>
-              </CardContent>
-            </Card>
+            <DialogCard
+              key={index}
+              icon={improvement.icon}
+              title={improvement.method}
+              description={improvement.description}
+              searchQuery={`Longevity & Health Optimization > Mitochondria > Improvements > ${improvement.method}`}
+            />
           ))}
         </div>
       </section>
@@ -115,22 +108,25 @@ export function Mitochondria() {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {supportiveCompounds.map((compound, index) => (
-                <div key={index} className="flex flex-col items-center p-4 border rounded-lg hover:shadow-md transition-shadow">
-                  <Badge
-                    variant="secondary"
-                    className={`mb-2 ${compound.category === 'Superfoods' ? 'bg-green-100 text-green-700' :
-                        compound.category === 'Technology' ? 'bg-blue-100 text-blue-700' :
-                          compound.category === 'Supplement' ? 'bg-purple-100 text-purple-700' :
-                            compound.category === 'Antioxidant' ? 'bg-orange-100 text-orange-700' :
-                              'bg-red-100 text-red-700'
-                      }`}
-                  >
-                    {compound.category}
-                  </Badge>
-                  <span className="text-center font-medium text-gray-900">
-                    {compound.name}
-                  </span>
-                </div>
+                <DialogCard
+                  key={index}
+                  title={compound.name}
+                  searchQuery={`Longevity & Health Optimization > Mitochondria > Supportive Compounds > ${compound.name}`}
+                >
+                  <div className="mt-2">
+                    <Badge
+                      variant="secondary"
+                      className={`${compound.category === 'Superfoods' ? 'bg-green-100 text-green-700' :
+                          compound.category === 'Technology' ? 'bg-blue-100 text-blue-700' :
+                            compound.category === 'Supplement' ? 'bg-purple-100 text-purple-700' :
+                              compound.category === 'Antioxidant' ? 'bg-orange-100 text-orange-700' :
+                                'bg-red-100 text-red-700'
+                        }`}
+                    >
+                      {compound.category}
+                    </Badge>
+                  </div>
+                </DialogCard>
               ))}
             </div>
           </CardContent>
@@ -196,4 +192,3 @@ export function Mitochondria() {
     </div>
   )
 }
-

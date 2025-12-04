@@ -2,7 +2,7 @@ import React from 'react';
 import { Brain, Heart, Smile, Users, Zap, Anchor, Sun } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Link } from 'react-router-dom';
+import { DialogCard } from '@/components/ui/DialogCard';
 
 export function Mindset() {
   const pillars = [
@@ -74,17 +74,13 @@ export function Mindset() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {pillars.map((pillar, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="flex items-center mb-2">
-                  {pillar.icon}
-                  <CardTitle className="ml-3 text-xl">{pillar.title}</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{pillar.description}</p>
-              </CardContent>
-            </Card>
+            <DialogCard
+              key={index}
+              icon={pillar.icon}
+              title={pillar.title}
+              description={pillar.description}
+              searchQuery={`Longevity & Health Optimization > Mindset & Mental Health > Pillars > ${pillar.title}`}
+            />
           ))}
         </div>
       </section>
@@ -113,15 +109,16 @@ export function Mindset() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {practices.map((practice, index) => (
-            <Card key={index} className="hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle className="text-lg">{practice.name}</CardTitle>
+            <DialogCard
+              key={index}
+              title={practice.name}
+              description={practice.description}
+              searchQuery={`Longevity & Health Optimization > Mindset & Mental Health > Daily Practices > ${practice.name}`}
+            >
+              <div className="mt-2">
                 <Badge variant="outline">{practice.time}</Badge>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-sm">{practice.description}</p>
-              </CardContent>
-            </Card>
+              </div>
+            </DialogCard>
           ))}
         </div>
       </section>

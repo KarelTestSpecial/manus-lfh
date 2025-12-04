@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Dna, Shield, Zap } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { DialogCard } from '@/components/ui/DialogCard';
 
 export function CellRepair() {
   const cellRepairMechanisms = [
@@ -36,18 +36,12 @@ export function CellRepair() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {cellRepairMechanisms.map((mechanism, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center text-lg">
-                  <Link to={`https://www.google.com/search?q=${encodeURIComponent(mechanism.searchQuery)}`} target="_blank" rel="noopener noreferrer" className="ml-2 hover:underline">
-                    {mechanism.name}
-                  </Link>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{mechanism.description}</p>
-              </CardContent>
-            </Card>
+            <DialogCard
+              key={index}
+              title={mechanism.name}
+              description={mechanism.description}
+              searchQuery={mechanism.searchQuery}
+            />
           ))}
         </div>
       </section>
@@ -58,14 +52,12 @@ export function CellRepair() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {waysToSupportCellRepair.map((way, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center text-lg">
-                  {way.icon}
-                  <span className="ml-2">{way.name}</span>
-                </CardTitle>
-              </CardHeader>
-            </Card>
+            <DialogCard
+              key={index}
+              icon={way.icon}
+              title={way.name}
+              searchQuery={`Longevity & Health Optimization > Defense Systems > Cell Repair > Support > ${way.name}`}
+            />
           ))}
         </div>
       </section>

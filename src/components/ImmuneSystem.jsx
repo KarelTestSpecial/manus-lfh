@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Shield, Zap, Users, ShieldCheck, Heart, Dumbbell, Moon, Utensils } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { DialogCard } from '@/components/ui/DialogCard';
 
 export function ImmuneSystem() {
   const immuneCellTypes = [
@@ -54,18 +54,12 @@ export function ImmuneSystem() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {immuneCellTypes.map((cell, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center text-lg">
-                  <Link to={`https://www.google.com/search?q=${encodeURIComponent(cell.searchQuery)}`} target="_blank" rel="noopener noreferrer" className="ml-2 hover:underline">
-                    {cell.name}
-                  </Link>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{cell.description}</p>
-              </CardContent>
-            </Card>
+            <DialogCard
+              key={index}
+              title={cell.name}
+              description={cell.description}
+              searchQuery={cell.searchQuery}
+            />
           ))}
         </div>
       </section>
@@ -77,23 +71,20 @@ export function ImmuneSystem() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {factorsThatWeakenImmunity.map((factor, index) => (
-            <Link to={`https://www.google.com/search?q=${encodeURIComponent(factor.searchQuery)}`} target="_blank" rel="noopener noreferrer" className="block hover:no-underline">
-              <Card key={index} className="text-center h-full hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="flex justify-center mb-2">
-                    {factor.icon}
-                  </div>
-                  <CardTitle className="text-lg">{factor.name}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <Badge
-                    variant={factor.impact === 'High' ? 'destructive' : 'secondary'}
-                  >
-                    {factor.impact} Impact
-                  </Badge>
-                </CardContent>
-              </Card>
-            </Link>
+            <DialogCard
+              key={index}
+              icon={factor.icon}
+              title={factor.name}
+              searchQuery={factor.searchQuery}
+            >
+              <div className="mt-2">
+                <Badge
+                  variant={factor.impact === 'High' ? 'destructive' : 'secondary'}
+                >
+                  {factor.impact} Impact
+                </Badge>
+              </div>
+            </DialogCard>
           ))}
         </div>
       </section>
@@ -105,19 +96,13 @@ export function ImmuneSystem() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {waysToSupportImmunity.map((way, index) => (
-            <Link to={`https://www.google.com/search?q=${encodeURIComponent(way.searchQuery)}`} target="_blank" rel="noopener noreferrer" className="block hover:no-underline">
-              <Card key={index} className="h-full hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <CardTitle className="flex items-center text-lg">
-                    {way.icon}
-                    <span className="ml-2">{way.name}</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{way.description}</p>
-                </CardContent>
-              </Card>
-            </Link>
+            <DialogCard
+              key={index}
+              icon={way.icon}
+              title={way.name}
+              description={way.description}
+              searchQuery={way.searchQuery}
+            />
           ))}
         </div>
       </section>
