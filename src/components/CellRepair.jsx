@@ -1,20 +1,10 @@
 import React from 'react';
-import { Dna, Shield, Zap } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Dna } from 'lucide-react';
 import { DialogCard } from '@/components/ui/DialogCard';
+import { cellRepairData } from '@/data/cell-repair';
 
 export function CellRepair() {
-  const cellRepairMechanisms = [
-    { name: "DNA Repair", description: "Corrects damage to the DNA molecules.", searchQuery: "Longevity & Health Optimization > Defense Systems > Cell Repair > DNA Repair" },
-    { name: "Autophagy", description: "Cellular recycling of damaged components.", searchQuery: "Longevity & Health Optimization > Aging > Autophagy" },
-    { name: "Apoptosis", description: "Programmed cell death for damaged cells.", searchQuery: "Longevity & Health Optimization > Defense Systems > Cell Repair > Apoptosis" }
-  ];
-
-  const waysToSupportCellRepair = [
-    { name: "Get enough sleep", icon: <Shield className="h-6 w-6 text-blue-500" /> },
-    { name: "Fasting and caloric restriction", icon: <Zap className="h-6 w-6 text-yellow-500" /> },
-    { name: "Consume nutrient-dense foods", icon: <Dna className="h-6 w-6 text-green-500" /> }
-  ];
+  const { cellRepairMechanisms, waysToSupportCellRepair } = cellRepairData;
 
   return (
     <div className="min-h-screen py-8 px-4 max-w-7xl mx-auto">
@@ -56,7 +46,7 @@ export function CellRepair() {
               key={index}
               icon={way.icon}
               title={way.name}
-              searchQuery={`Longevity & Health Optimization > Defense Systems > Cell Repair > Support > ${way.name}`}
+              searchQuery={way.searchQuery}
             />
           ))}
         </div>
