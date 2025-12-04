@@ -1,7 +1,7 @@
 # Longevity & Health Optimization
 
 ## Project Description
-This is a React-based web application built with Vite, designed as a comprehensive informational platform focusing on various aspects of longevity and health optimization. It features detailed sections on topics such as Aging, Autophagy, Inflammation, Nutrition, Sleep, and more, offering evidence-based strategies for a healthier and longer life.
+This is a React-based web application built with Vite, designed as a comprehensive informational platform focusing on various aspects of longevity and health optimization. It features detailed sections on topics such as Aging, Autophagy, Inflammation, Nutrition, Sleep, and more, offering evidence-based strategies for a healthier and longer life. https://kareltestspecial.github.io/manus-lfh/
 
 ## Features
 -   Interactive and dynamic single-page application.
