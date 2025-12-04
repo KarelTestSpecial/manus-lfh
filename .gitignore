@@ -124,3 +124,6 @@ dist-ssr/
 
 # Test results
 test-results/
+
+# Test screenshots
+tests/immune_system.png

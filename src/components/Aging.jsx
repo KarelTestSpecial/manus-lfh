@@ -85,7 +85,7 @@ export function Aging() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {healthyAgingInfluences.map((influence, index) => (
-            <Link to={`https://www.google.com/search?q=${encodeURIComponent(influence.searchQuery)}`} target="_blank" rel="noopener noreferrer" className="ml-2 hover:underline">
+            <Link to={`https://www.google.com/search?q=${encodeURIComponent(influence.searchQuery)}`} target="_blank" rel="noopener noreferrer" className="hover:underline">
               <Card key={index} className="text-center hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="flex justify-center mb-2">
@@ -113,7 +113,7 @@ export function Aging() {
           Key Insights About Aging
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Link to={`https://www.google.com/search?q=${encodeURIComponent('Longevity & Health Optimization > Aging > Key Insights About Aging > Mid-70s Significant Slowdown')}`} target="_blank" rel="noopener noreferrer" className="ml-2 hover:underline">
+          <Link to={`https://www.google.com/search?q=${encodeURIComponent('Longevity & Health Optimization > Aging > Key Insights About Aging > Mid-70s Significant Slowdown')}`} target="_blank" rel="noopener noreferrer" className="hover:underline">
             <Card className="border-orange-200 bg-orange-50">
               <CardHeader>
                 <CardTitle className="text-orange-700">
@@ -129,7 +129,7 @@ export function Aging() {
               </CardContent>
             </Card>
           </Link>
-          <Link to={`https://www.google.com/search?q=${encodeURIComponent('Longevity & Health Optimization > Aging > Key Insights About Aging > Temporal Disconnect')}`} target="_blank" rel="noopener noreferrer" className="ml-2 hover:underline">
+          <Link to={`https://www.google.com/search?q=${encodeURIComponent('Longevity & Health Optimization > Aging > Key Insights About Aging > Temporal Disconnect')}`} target="_blank" rel="noopener noreferrer" className="hover:underline">
             <Card className="border-purple-200 bg-purple-50">
               <CardHeader>
                 <CardTitle className="text-purple-700">
@@ -145,7 +145,7 @@ export function Aging() {
               </CardContent>
             </Card>
           </Link>
-          <Link to={`https://www.google.com/search?q=${encodeURIComponent('Longevity & Health Optimization > Aging > Key Insights About Aging > Frailty Statistics')}`} target="_blank" rel="noopener noreferrer" className="ml-2 hover:underline">
+          <Link to={`https://www.google.com/search?q=${encodeURIComponent('Longevity & Health Optimization > Aging > Key Insights About Aging > Frailty Statistics')}`} target="_blank" rel="noopener noreferrer" className="hover:underline">
             <Card className="border-red-200 bg-red-50">
               <CardHeader>
                 <CardTitle className="text-red-700">
@@ -161,7 +161,7 @@ export function Aging() {
               </CardContent>
             </Card>
           </Link>
-          <Link to={`https://www.google.com/search?q=${encodeURIComponent('Longevity & Health Optimization > Aging > Key Insights About Aging > Effects Intensify')}`} target="_blank" rel="noopener noreferrer" className="ml-2 hover:underline">
+          <Link to={`https://www.google.com/search?q=${encodeURIComponent('Longevity & Health Optimization > Aging > Key Insights About Aging > Effects Intensify')}`} target="_blank" rel="noopener noreferrer" className="hover:underline">
             <Card className="border-blue-200 bg-blue-50">
               <CardHeader>
                 <CardTitle className="text-blue-700">

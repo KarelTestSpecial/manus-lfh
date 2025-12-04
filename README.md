@@ -61,6 +61,22 @@ To run the linter and check for code style issues:
 pnpm lint
 ```
 
+## Deployment
+
+This project is automatically built and deployed to GitHub Pages using a GitHub Actions workflow.
+
+### Automated Workflow
+
+-   **Trigger:** The deployment workflow is automatically triggered on every `push` to the `main` branch.
+-   **Process:**
+    1.  The workflow checks out the latest code.
+    2.  It sets up Node.js and `pnpm`.
+    3.  It installs all project dependencies using `pnpm install`.
+    4.  The application is built for production using `pnpm build`.
+    5.  The final build artifacts from the `dist/` directory are uploaded and deployed to GitHub Pages.
+
+This automated process ensures that the live version of the application is always in sync with the latest changes in the `main` branch.
+
 ## Usage
 Navigate through the application using the provided navigation bar to explore different health topics. Each section offers information, benefits, and actionable strategies related to its subject.
 
