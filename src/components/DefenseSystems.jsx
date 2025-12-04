@@ -1,7 +1,7 @@
 import React from 'react';
 import { Shield, Heart, Dna, Bug, Brain, Zap, Syringe, Bone, Activity, Leaf, Microscope } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@components/ui/card';
-import { Link } from 'react-router-dom';
+import { Link, Outlet, useOutlet } from 'react-router-dom';
 
 export function DefenseSystems() {
   const defenseSystems = [
@@ -43,7 +43,11 @@ export function DefenseSystems() {
     },
   ];
 
-  return (
+  const outlet = useOutlet();
+
+  return outlet ? (
+    <Outlet />
+  ) : (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold text-center mb-12">Verdedigingssystemen</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

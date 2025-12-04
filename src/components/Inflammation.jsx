@@ -30,7 +30,6 @@ export function Inflammation() {
           Acute vs. Chronic Inflammation
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Card className="border-green-200 bg-green-50">
       {/* Warning Section */}
       <Card className="mb-12 bg-red-50 border-red-200">
         <CardHeader>
@@ -46,6 +45,8 @@ export function Inflammation() {
           </p>
         </CardContent>
       </Card>
+        </div>
+      </section>
 
       {/* Causes */}
       <section className="mb-12">
