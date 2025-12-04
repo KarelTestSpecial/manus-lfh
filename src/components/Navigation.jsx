@@ -1,31 +1,57 @@
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Heart, Activity } from 'lucide-react'
+import { Menu, X, Heart, Activity, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
+const navItems = [
+  { path: '/', label: 'Home' },
+  { path: '/aging', label: 'Aging' },
+  { 
+    path: '/defense-systems', 
+    label: 'Defense Systems',
+    children: [
+      { path: '/defense-systems', label: 'Overview' },
+      { path: '/defense-systems/immune-system', label: 'Immune System' },
+      { path: '/defense-systems/detoxification', label: 'Detoxification' },
+      { path: '/defense-systems/antioxidant-defense', label: 'Antioxidant Defense' },
+      { path: '/defense-systems/cell-repair', label: 'Cell Repair' },
+      { path: '/defense-systems/microbiome-balance', label: 'Microbiome Balance' },
+    ]
+  },
+  { path: '/inflammation', label: 'Inflammation' },
+  { path: '/autophagy', label: 'Autophagy' },
+  { path: '/mitochondria', label: 'Mitochondria' },
+  { path: '/microbiome', label: 'Microbiome' },
+  { path: '/nutrition', label: 'Nutrition' },
+  { path: '/exercise', label: 'Exercise' },
+  { path: '/sleep', label: 'Sleep' },
+  { path: '/bone-health', label: 'Bone Health' },
+  { path: '/circulation', label: 'Circulation' },
+  { path: '/metabolism', label: 'Metabolism' },
+  { path: '/mindset', label: 'Mindset' },
+  { path: '/technology', label: 'Technology' },
+  { path: '/toxins', label: 'Toxins' },
+  { path: '/other-health', label: 'Other Health' }
+]
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const location = useLocation()
 
-  const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/aging', label: 'Aging' },
-    { path: '/inflammation', label: 'Inflammation' },
-    { path: '/autophagy', label: 'Autophagy' },
-    { path: '/mitochondria', label: 'Mitochondria' },
-    { path: '/microbiome', label: 'Microbiome' },
-    { path: '/bone-health', label: 'Bone Health' },
-    { path: '/defense-systems', label: 'Defense Systems' },
-    { path: '/circulation', label: 'Circulation' },
-    { path: '/nutrition', label: 'Nutrition' },
-    { path: '/exercise', label: 'Exercise' },
-    { path: '/metabolism', label: 'Metabolism' },
-    { path: '/sleep', label: 'Sleep' },
-    { path: '/mindset', label: 'Mindset' },
-    { path: '/technology', label: 'Technology' },
-    { path: '/toxins', label: 'Toxins' },
-    { path: '/other-health', label: 'Other Health' }
-  ]
+  // Functie om te checken of een route of een van zijn kinderen actief is
+  const isActive = (item) => {
+    if (location.pathname === item.path) return true;
+    if (item.children) {
+      return item.children.some(child => location.pathname === child.path);
+    }
+    return false;
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
@@ -45,40 +71,64 @@ export function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
             {navItems.slice(0, 8).map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  location.pathname === item.path
-                    ? 'bg-green-100 text-green-700'
-                    : 'text-gray-700 hover:bg-gray-100'
-                }`}
-              >
-                {item.label}
-              </Link>
+              item.children ? (
+                <DropdownMenu key={item.path}>
+                  <DropdownMenuTrigger asChild>
+                    <Button 
+                      variant="ghost" 
+                      className={`px-3 py-2 text-sm font-medium h-auto ${isActive(item) ? 'bg-green-100 text-green-700' : 'text-gray-700'}`}
+                    >
+                      {item.label} <ChevronDown className="ml-1 h-4 w-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    {item.children.map((child) => (
+                      <DropdownMenuItem key={child.path} asChild>
+                        <Link 
+                          to={child.path}
+                          className={`w-full cursor-pointer ${location.pathname === child.path ? 'bg-green-50 text-green-700 font-medium' : ''}`}
+                        >
+                          {child.label}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    isActive(item)
+                      ? 'bg-green-100 text-green-700'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
             
             {/* Dropdown for remaining items */}
-            <div className="relative group">
-              <Button variant="ghost" className="text-gray-700">
-                More
-              </Button>
-              <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-md shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="text-gray-700 h-auto px-3 py-2">
+                  More <ChevronDown className="ml-1 h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
                 {navItems.slice(8).map((item) => (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    className={`block px-4 py-2 text-sm transition-colors ${
-                      location.pathname === item.path
-                        ? 'bg-green-100 text-green-700'
-                        : 'text-gray-700 hover:bg-gray-100'
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
+                  <DropdownMenuItem key={item.path} asChild>
+                    <Link
+                      to={item.path}
+                      className={`w-full cursor-pointer ${isActive(item) ? 'bg-green-50 text-green-700' : ''}`}
+                    >
+                      {item.label}
+                    </Link>
+                  </DropdownMenuItem>
                 ))}
-              </div>
-            </div>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* Mobile menu button */}
@@ -95,21 +145,44 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden">
+          <div className="lg:hidden h-[calc(100vh-4rem)] overflow-y-auto">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
               {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                    location.pathname === item.path
-                      ? 'bg-green-100 text-green-700'
-                      : 'text-gray-700 hover:bg-gray-100'
-                  }`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </Link>
+                <div key={item.path}>
+                  {item.children ? (
+                    <div className="space-y-1">
+                      <div className="px-3 py-2 font-medium text-gray-900">{item.label}</div>
+                      <div className="pl-4 space-y-1 border-l-2 border-gray-100 ml-3">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.path}
+                            to={child.path}
+                            className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                              location.pathname === child.path
+                                ? 'bg-green-100 text-green-700'
+                                : 'text-gray-600 hover:bg-gray-100'
+                            }`}
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <Link
+                      to={item.path}
+                      className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                        isActive(item)
+                          ? 'bg-green-100 text-green-700'
+                          : 'text-gray-700 hover:bg-gray-100'
+                      }`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </div>
               ))}
             </div>
           </div>

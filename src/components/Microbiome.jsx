@@ -3,68 +3,11 @@ import { Bug, Shield, Brain, Heart, CheckCircle, X } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
+import { microbiomeData } from '@/data/microbiome';
 
 export function Microbiome() {
-  const keyBacteria = [
-    {
-      name: "Akkermansia Muciniphila",
-      benefits: [
-        "Helps cancer treatment response",
-        "Improves metabolic health & gut lining",
-        "Lowers inflammation"
-      ],
-      searchQuery: "Longevity & Health Optimization > Microbiome Health > Key Bacteria for Longevity > Akkermansia Muciniphila"
-    },
-    {
-      name: "Odoribacter",
-      benefits: [
-        "Improves immune system (against E.coli, etc.)"
-      ],
-      searchQuery: "Longevity & Health Optimization > Microbiome Health > Key Bacteria for Longevity > Odoribacter"
-    },
-    {
-      name: "Oscillibacter",
-      benefits: [
-        "Improves lipid profile (lowers LDL, increases HDL)",
-        "Improves metabolism (blood sugar, insulin sensitivity)"
-      ],
-      searchQuery: "Longevity & Health Optimization > Microbiome Health > Key Bacteria for Longevity > Oscillibacter"
-    },
-    {
-      name: "Cristianella",
-      benefits: [
-        "Supports overall gut health"
-      ],
-      searchQuery: "Longevity & Health Optimization > Microbiome Health > Key Bacteria for Longevity > Cristianella"
-    }
-  ];
+  const { keyBacteria, harmfulFactors, beneficialFoods } = microbiomeData;
 
-  const harmfulFactors = [
-    "Alcohol",
-    "Lack of Good Sleep",
-    "Smoking/Vaping",
-    "Ultra-Processed Foods & Artificial Ingredients",
-    "Unnecessary Antibiotics (collateral damage)"
-  ];
-
-  const beneficialFoods = [
-    {
-      category: "Fermented Foods (Probiotics)",
-      items: ["Kefir, Yoghurt", "Kimchi, Sauerkraut", "Kombucha (fermented tea)"]
-    },
-    {
-      category: "Polyphenol-rich Foods",
-      items: ["Chili Peppers, Black Vinegar, Matcha", "Concord Grapes, Berries"]
-    },
-    {
-      category: "Resistant Starches (Prebiotics)",
-      items: ["Day Old Cooked Rice / Potatoes", "Green Bananas & Plantains", "Oatmeal"]
-    },
-    {
-      category: "Diverse Plant Foods",
-      items: ["30+ plant types per week", "Variety of whole foods"]
-    }
-  ];
 
   return (
     <div className="min-h-screen py-8 px-4 max-w-7xl mx-auto">
@@ -77,7 +20,7 @@ export function Microbiome() {
           Microbiome Health
         </h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Discover the 39 trillion bacteria that support your health and learn how to 
+          Discover the 39 trillion bacteria that support your health and learn how to
           optimize your gut microbiome for longevity and wellness.
         </p>
       </div>
@@ -141,7 +84,7 @@ export function Microbiome() {
               <CardHeader>
                 <CardTitle className="text-xl text-green-700">
                   <Link to={`https://www.google.com/search?q=${encodeURIComponent(bacteria.searchQuery)}`} target="_blank" rel="noopener noreferrer">
-                  {bacteria.name}
+                    {bacteria.name}
                   </Link>
                 </CardTitle>
               </CardHeader>
@@ -229,7 +172,7 @@ export function Microbiome() {
                 Nitric Oxide Production
               </h3>
               <p className="text-gray-700">
-                Healthy oral bacteria help produce nitric oxide, which is crucial 
+                Healthy oral bacteria help produce nitric oxide, which is crucial
                 for cardiovascular health.
               </p>
             </div>
@@ -238,7 +181,7 @@ export function Microbiome() {
                 Dementia Connection
               </h3>
               <p className="text-gray-700">
-                Gum disease has been linked to increased risk of dementia and 
+                Gum disease has been linked to increased risk of dementia and
                 cognitive decline.
               </p>
             </div>
@@ -260,7 +203,7 @@ export function Microbiome() {
             Optimize Your Microbiome
           </h3>
           <p className="text-lg text-green-100 mb-6">
-            Start nurturing your gut bacteria with these evidence-based strategies 
+            Start nurturing your gut bacteria with these evidence-based strategies
             for better health and longevity.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-8">

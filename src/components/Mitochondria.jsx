@@ -2,63 +2,11 @@ import React from 'react'
 import { Zap, Snowflake, Dumbbell, Clock, Lightbulb, Heart } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { mitochondriaData } from '@/data/mitochondria'
 
 export function Mitochondria() {
-  const improvements = [
-    {
-      method: "Cold Exposure",
-      icon: <Snowflake className="h-6 w-6 text-blue-500" />,
-      description: "Activates brown fat and stimulates mitochondrial biogenesis"
-    },
-    {
-      method: "Exercise (Zone 2 & HIIT)",
-      icon: <Dumbbell className="h-6 w-6 text-green-500" />,
-      description: "Especially effective for mitochondrial health and energy production"
-    },
-    {
-      method: "Intermittent Fasting",
-      icon: <Clock className="h-6 w-6 text-orange-500" />,
-      description: "Forces mitochondria to become more efficient"
-    },
-    {
-      method: "Key Nutrients",
-      icon: <Heart className="h-6 w-6 text-red-500" />,
-      description: "CoQ10, PQQ, and other mitochondrial cofactors"
-    }
-  ]
+  const { improvements, supportiveCompounds, keyFacts } = mitochondriaData
 
-  const supportiveCompounds = [
-    { name: "Algae (Spirulina, Chlorella)", category: "Superfoods" },
-    { name: "Red Light Therapy", category: "Technology" },
-    { name: "Dihydromyricetin", category: "Supplement" },
-    { name: "OEA (Oleoylethanolamide)", category: "Supplement" },
-    { name: "Astaxanthin", category: "Antioxidant" },
-    { name: "CoQ10", category: "Cofactor" },
-    { name: "PQQ", category: "Cofactor" }
-  ]
-
-  const keyFacts = [
-    {
-      title: "Powerhouse of the Cell",
-      description: "Mitochondria produce ATP, the energy currency that powers all cellular processes",
-      icon: <Zap className="h-8 w-8 text-yellow-500" />
-    },
-    {
-      title: "Primary Cause of Aging",
-      description: "Damaged mitochondria are considered one of the main drivers of the aging process",
-      icon: <Clock className="h-8 w-8 text-red-500" />
-    },
-    {
-      title: "Distributed Intelligence",
-      description: "Ancient bacteria that communicate with each other and coordinate cellular energy",
-      icon: <Lightbulb className="h-8 w-8 text-purple-500" />
-    },
-    {
-      title: "Resuscitation Possible",
-      description: "Even early onset dysfunction can be improved with proper interventions",
-      icon: <Heart className="h-8 w-8 text-green-500" />
-    }
-  ]
 
   return (
     <div className="min-h-screen py-8 px-4 max-w-7xl mx-auto">
@@ -71,7 +19,7 @@ export function Mitochondria() {
           Mitochondria: Cellular Powerhouses
         </h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Learn about the energy-producing organelles that power your cells and discover 
+          Learn about the energy-producing organelles that power your cells and discover
           how to optimize their function for longevity and vitality.
         </p>
       </div>
@@ -113,7 +61,7 @@ export function Mitochondria() {
                 Brown Fat is Packed with Mitochondria
               </h3>
               <p className="text-gray-700">
-                Brown adipose tissue contains an exceptionally high density of mitochondria, 
+                Brown adipose tissue contains an exceptionally high density of mitochondria,
                 which gives it its characteristic color and thermogenic properties.
               </p>
             </div>
@@ -122,7 +70,7 @@ export function Mitochondria() {
                 Early Activity Matters
               </h3>
               <p className="text-gray-700">
-                Children's physical activity levels help predetermine their mitochondrial 
+                Children's physical activity levels help predetermine their mitochondrial
                 load and capacity throughout life.
               </p>
             </div>
@@ -168,15 +116,14 @@ export function Mitochondria() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {supportiveCompounds.map((compound, index) => (
                 <div key={index} className="flex flex-col items-center p-4 border rounded-lg hover:shadow-md transition-shadow">
-                  <Badge 
-                    variant="secondary" 
-                    className={`mb-2 ${
-                      compound.category === 'Superfoods' ? 'bg-green-100 text-green-700' :
-                      compound.category === 'Technology' ? 'bg-blue-100 text-blue-700' :
-                      compound.category === 'Supplement' ? 'bg-purple-100 text-purple-700' :
-                      compound.category === 'Antioxidant' ? 'bg-orange-100 text-orange-700' :
-                      'bg-red-100 text-red-700'
-                    }`}
+                  <Badge
+                    variant="secondary"
+                    className={`mb-2 ${compound.category === 'Superfoods' ? 'bg-green-100 text-green-700' :
+                        compound.category === 'Technology' ? 'bg-blue-100 text-blue-700' :
+                          compound.category === 'Supplement' ? 'bg-purple-100 text-purple-700' :
+                            compound.category === 'Antioxidant' ? 'bg-orange-100 text-orange-700' :
+                              'bg-red-100 text-red-700'
+                      }`}
                   >
                     {compound.category}
                   </Badge>
@@ -201,15 +148,15 @@ export function Mitochondria() {
         <CardContent>
           <div className="space-y-4">
             <p className="text-gray-700">
-              <strong>Distributed Intelligence:</strong> Mitochondria are ancient bacteria that have 
+              <strong>Distributed Intelligence:</strong> Mitochondria are ancient bacteria that have
               developed sophisticated communication networks within cells.
             </p>
             <p className="text-gray-700">
-              <strong>Dysfunction Signals:</strong> When mitochondria become dysfunctional, they 
+              <strong>Dysfunction Signals:</strong> When mitochondria become dysfunctional, they
               signal other mitochondria, potentially spreading damage throughout the cell.
             </p>
             <p className="text-gray-700">
-              <strong>Collective Function:</strong> Healthy mitochondria work together to maintain 
+              <strong>Collective Function:</strong> Healthy mitochondria work together to maintain
               optimal cellular energy production and metabolic function.
             </p>
           </div>
@@ -223,7 +170,7 @@ export function Mitochondria() {
             Optimize Your Cellular Energy
           </h3>
           <p className="text-lg text-yellow-100 mb-6">
-            Start implementing these mitochondrial health strategies to boost your energy 
+            Start implementing these mitochondrial health strategies to boost your energy
             production and support healthy aging.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-8">
