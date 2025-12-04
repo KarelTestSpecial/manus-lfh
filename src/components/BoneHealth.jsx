@@ -1,37 +1,57 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Bone, Scale, Shield, Brain, Heart, Dumbbell, AlertTriangle, X } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 export function BoneHealth() {
   const risks = [
-    "fragility",
-    "osteopenia",
-    "osteoporosis",
-    "fracture",
-    "frailty"
+    { name: "Fragility", searchQuery: "Longevity & Health Optimization > Bone Health > Risks > Fragility" },
+    { name: "Osteopenia", searchQuery: "Longevity & Health Optimization > Bone Health > Risks > Osteopenia" },
+    { name: "Osteoporosis", searchQuery: "Longevity & Health Optimization > Bone Health > Risks > Osteoporosis" },
+    { name: "Fracture", searchQuery: "Longevity & Health Optimization > Bone Health > Risks > Fracture" },
+    { name: "Frailty", searchQuery: "Longevity & Health Optimization > Bone Health > Risks > Frailty" }
   ];
 
   const buildingStrategies = [
     {
       name: "Weight-Bearing Exercise",
       icon: <Dumbbell className="h-6 w-6 text-blue-500" />,
-      description: "Crucial for bone density and strength"
+      description: "Crucial for bone density and strength",
+      searchQuery: "Longevity & Health Optimization > Bone Health > Building Strategies > Weight-Bearing Exercise"
     },
     {
       name: "Resistance Training",
       icon: <Scale className="h-6 w-6 text-green-500" />,
-      description: "Lifting heavy weights stimulates bone growth"
+      description: "Lifting heavy weights stimulates bone growth",
+      searchQuery: "Longevity & Health Optimization > Bone Health > Building Strategies > Resistance Training"
     },
     {
       name: "Nutritional Support",
       icon: <Heart className="h-6 w-6 text-red-500" />,
-      description: "Adequate calcium, magnesium, vitamin D3 & K2"
+      description: "Adequate calcium, magnesium, vitamin D3 & K2",
+      searchQuery: "Longevity & Health Optimization > Bone Health > Building Strategies > Nutritional Support"
     },
     {
       name: "Impact Sports",
       icon: <Dumbbell className="h-6 w-6 text-purple-500" />,
-      description: "Running, jumping, and other high-impact activities"
+      description: "Running, jumping, and other high-impact activities",
+      searchQuery: "Longevity & Health Optimization > Bone Health > Building Strategies > Impact Sports"
+    }
+  ];
+
+  const boneRoles = [
+    {
+      name: "Brain & Cognition",
+      icon: <Brain className="h-6 w-6 mr-2" />,
+      description: "The hippocampus, a brain region vital for memory, is connected to bone health.",
+      searchQuery: "Longevity & Health Optimization > Bone Health > Role in Body > Brain & Cognition"
+    },
+    {
+      name: "Mineral Storage",
+      icon: <Scale className="h-6 w-6 mr-2" />,
+      description: "Bones act as a storehouse for essential minerals like calcium and phosphorus.",
+      searchQuery: "Longevity & Health Optimization > Bone Health > Role in Body > Mineral Storage"
     }
   ];
 
@@ -81,9 +101,11 @@ export function BoneHealth() {
             <CardContent>
               <ul className="space-y-2 text-gray-700">
                 {risks.map((risk, index) => (
-                  <li key={index} className="flex items-center">
-                    <X className="h-4 w-4 text-red-500 mr-2 flex-shrink-0" />
-                    {risk}
+                  <li key={index}>
+                    <Link to={`https://www.google.com/search?q=${encodeURIComponent(risk.searchQuery)}`} target="_blank" rel="noopener noreferrer" className="flex items-center hover:underline">
+                      <X className="h-4 w-4 text-red-500 mr-2 flex-shrink-0" />
+                      {risk.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -96,33 +118,23 @@ export function BoneHealth() {
       <section className="mb-12">
         <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Bone's Role in the Body</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Card className="border-green-200 bg-green-50">
-            <CardHeader>
-              <CardTitle className="text-green-700 flex items-center">
-                <Brain className="h-6 w-6 mr-2" />
-                Brain & Cognition
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-700">
-                The hippocampus, a brain region vital for memory, is connected to bone health.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="border-purple-200 bg-purple-50">
-            <CardHeader>
-              <CardTitle className="text-purple-700 flex items-center">
-                <Scale className="h-6 w-6 mr-2" />
-                Mineral Storage
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-700">
-                Bones act as a storehouse for essential minerals like calcium and phosphorus.
-              </p>
-            </CardContent>
-          </Card>
+          {boneRoles.map((role, index) => (
+            <Card key={index} className="border-green-200 bg-green-50">
+              <CardHeader>
+                <CardTitle className="text-green-700 flex items-center">
+                  <Link to={`https://www.google.com/search?q=${encodeURIComponent(role.searchQuery)}`} target="_blank" rel="noopener noreferrer" className="flex items-center hover:underline">
+                    {role.icon}
+                    {role.name}
+                  </Link>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700">
+                  {role.description}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </section>
 
@@ -136,8 +148,10 @@ export function BoneHealth() {
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  {strategy.icon}
-                  <span className="ml-2">{strategy.name}</span>
+                   <Link to={`https://www.google.com/search?q=${encodeURIComponent(strategy.searchQuery)}`} target="_blank" rel="noopener noreferrer" className="flex items-center hover:underline">
+                    {strategy.icon}
+                    <span className="ml-2">{strategy.name}</span>
+                  </Link>
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -180,5 +194,3 @@ export function BoneHealth() {
     </div>
   );
 }
-
-
