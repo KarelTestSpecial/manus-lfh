@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { Home } from './components/Home';
 import { Aging } from './components/Aging';
@@ -27,7 +27,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router basename="/manus-lfh">
+    <Router>
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
         <Navigation />
         <main className="pt-16">
