@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dumbbell, Heart, Activity, Bike, Swimmer, Sun } from 'lucide-react';
+import { Dumbbell, Heart, Activity, Bike, Waves, Sun } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 
@@ -52,7 +52,7 @@ export function Exercise() {
     },
     {
       name: "Flexibility & Balance",
-      icon: <Swimmer className="h-8 w-8 text-indigo-500" />,
+      icon: <Waves className="h-8 w-8 text-indigo-500" />,
       description: "Activities like yoga or stretching to improve range of motion and stability.",
 	  searchQuery: "Longevity & Health Optimization > Exercise & Movement > Flexibility & Balance"
     }
@@ -140,7 +140,7 @@ export function Exercise() {
               <span className="font-semibold">Strength Training</span>
             </div>
             <div className="flex flex-col items-center">
-              <Swimmer className="h-8 w-8 mb-2" />
+              <Waves className="h-8 w-8 mb-2" />
               <span className="font-semibold">Flexibility Work</span>
             </div>
           </div>
@@ -149,5 +149,6 @@ export function Exercise() {
     </div>
   );
 }
+
 
 
