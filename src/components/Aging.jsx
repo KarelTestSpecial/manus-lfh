@@ -15,11 +15,11 @@ export function Aging() {
   ];
 
   const healthyAgingInfluences = [
-    { name: "Exercise", icon: <Dumbbell className="h-6 w-6 text-blue-500" />, impact: "High" },
-    { name: "Food", icon: <Utensils className="h-6 w-6 text-green-500" />, impact: "High" },
-    { name: "Mental Health", icon: <Brain className="h-6 w-6 text-purple-500" />, impact: "High" },
-    { name: "Sleep", icon: <Moon className="h-6 w-6 text-indigo-500" />, impact: "High" },
-    { name: "Toxins", icon: <Shield className="h-6 w-6 text-red-500" />, impact: "Medium" }
+    { name: "Exercise", icon: <Dumbbell className="h-6 w-6 text-blue-500" />, impact: "High", searchQuery: "Longevity & Health Optimization > Aging > Healthy Aging Influences > Exercise" },
+    { name: "Food", icon: <Utensils className="h-6 w-6 text-green-500" />, impact: "High", searchQuery: "Longevity & Health Optimization > Aging > Healthy Aging Influences > Food" },
+    { name: "Mental Health", icon: <Brain className="h-6 w-6 text-purple-500" />, impact: "High", searchQuery: "Longevity & Health Optimization > Aging > Healthy Aging Influences > Mental Health" },
+    { name: "Sleep", icon: <Moon className="h-6 w-6 text-indigo-500" />, impact: "High", searchQuery: "Longevity & Health Optimization > Aging > Healthy Aging Influences > Sleep" },
+    { name: "Toxins", icon: <Shield className="h-6 w-6 text-red-500" />, impact: "Medium", searchQuery: "Longevity & Health Optimization > Aging > Healthy Aging Influences > Toxins" }
   ];
 
   return (
@@ -85,22 +85,24 @@ export function Aging() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {healthyAgingInfluences.map((influence, index) => (
-            <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="flex justify-center mb-2">
-                  {influence.icon}
-                </div>
-                <CardTitle className="text-lg">{influence.name}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Badge 
-                  variant={influence.impact === 'High' ? 'default' : 'secondary'}
-                  className={influence.impact === 'High' ? 'bg-green-600' : ''}
-                >
-                  {influence.impact} Impact
-                </Badge>
-              </CardContent>
-            </Card>
+            <Link to={`https://www.google.com/search?q=${encodeURIComponent(influence.searchQuery)}`} target="_blank" rel="noopener noreferrer" className="ml-2 hover:underline">
+              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="flex justify-center mb-2">
+                    {influence.icon}
+                  </div>
+                  <CardTitle className="text-lg">{influence.name}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <Badge
+                    variant={influence.impact === 'High' ? 'default' : 'secondary'}
+                    className={influence.impact === 'High' ? 'bg-green-600' : ''}
+                  >
+                    {influence.impact} Impact
+                  </Badge>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </section>
@@ -111,65 +113,70 @@ export function Aging() {
           Key Insights About Aging
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Card className="border-orange-200 bg-orange-50">
-            <CardHeader>
-              <CardTitle className="text-orange-700">
-                <TrendingDown className="h-6 w-6 inline mr-2" />
-                Mid-70s Significant Slowdown
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-700">
-                Athletic performance and physical capabilities show marked decline 
-                in the mid-70s, making earlier intervention crucial.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="border-purple-200 bg-purple-50">
-            <CardHeader>
-              <CardTitle className="text-purple-700">
-                <Clock className="h-6 w-6 inline mr-2" />
-                Temporal Disconnect
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-700">
-                It's hard to act today for future benefits, but the choices we make 
-                now significantly impact our health decades later.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="border-red-200 bg-red-50">
-            <CardHeader>
-              <CardTitle className="text-red-700">
-                <Shield className="h-6 w-6 inline mr-2" />
-                Frailty Statistics
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-700">
-                25% of people become frail by age 85, characterized by loss of 
-                functional capacity and increased vulnerability.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="border-blue-200 bg-blue-50">
-            <CardHeader>
-              <CardTitle className="text-blue-700">
-                <Heart className="h-6 w-6 inline mr-2" />
-                Effects Intensify
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-700">
-                The effects of aging become more pronounced in the second half 
-                of life, making prevention strategies essential.
-              </p>
-            </CardContent>
-          </Card>
+          <Link to={`https://www.google.com/search?q=${encodeURIComponent('Longevity & Health Optimization > Aging > Key Insights About Aging > Mid-70s Significant Slowdown')}`} target="_blank" rel="noopener noreferrer" className="ml-2 hover:underline">
+            <Card className="border-orange-200 bg-orange-50">
+              <CardHeader>
+                <CardTitle className="text-orange-700">
+                  <TrendingDown className="h-6 w-6 inline mr-2" />
+                  Mid-70s Significant Slowdown
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700">
+                  Athletic performance and physical capabilities show marked decline
+                  in the mid-70s, making earlier intervention crucial.
+                </p>
+              </CardContent>
+            </Card>
+          </Link>
+          <Link to={`https://www.google.com/search?q=${encodeURIComponent('Longevity & Health Optimization > Aging > Key Insights About Aging > Temporal Disconnect')}`} target="_blank" rel="noopener noreferrer" className="ml-2 hover:underline">
+            <Card className="border-purple-200 bg-purple-50">
+              <CardHeader>
+                <CardTitle className="text-purple-700">
+                  <Clock className="h-6 w-6 inline mr-2" />
+                  Temporal Disconnect
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700">
+                  It's hard to act today for future benefits, but the choices we make
+                  now significantly impact our health decades later.
+                </p>
+              </CardContent>
+            </Card>
+          </Link>
+          <Link to={`https://www.google.com/search?q=${encodeURIComponent('Longevity & Health Optimization > Aging > Key Insights About Aging > Frailty Statistics')}`} target="_blank" rel="noopener noreferrer" className="ml-2 hover:underline">
+            <Card className="border-red-200 bg-red-50">
+              <CardHeader>
+                <CardTitle className="text-red-700">
+                  <Shield className="h-6 w-6 inline mr-2" />
+                  Frailty Statistics
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700">
+                  25% of people become frail by age 85, characterized by loss of
+                  functional capacity and increased vulnerability.
+                </p>
+              </CardContent>
+            </Card>
+          </Link>
+          <Link to={`https://www.google.com/search?q=${encodeURIComponent('Longevity & Health Optimization > Aging > Key Insights About Aging > Effects Intensify')}`} target="_blank" rel="noopener noreferrer" className="ml-2 hover:underline">
+            <Card className="border-blue-200 bg-blue-50">
+              <CardHeader>
+                <CardTitle className="text-blue-700">
+                  <Heart className="h-6 w-6 inline mr-2" />
+                  Effects Intensify
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700">
+                  The effects of aging become more pronounced in the second half
+                  of life, making prevention strategies essential.
+                </p>
+              </CardContent>
+            </Card>
+          </Link>
         </div>
       </section>
 
