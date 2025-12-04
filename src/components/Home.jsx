@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowDown, ArrowRight, Heart, Brain, Dna, Zap, Shield, Activity } from 'lucide-react'
+import { ArrowDown, ArrowRight, Heart, Brain, Dna, Zap, Shield, Activity, Utensils, Moon, Bone, Cpu, Biohazard } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import heroImage from '../assets/8iYQd9Va36Vo.jpg'
@@ -15,39 +15,93 @@ export function Home() {
   const keyTopics = [
     {
       icon: <Heart className="h-8 w-8 text-red-500" />,
-      title: "Aging & Longevity",
-      description: "Understanding the aging process and how to add life to years, not just years to life.",
+      title: "Aging",
+      description: "Understanding the aging process and adding life to years.",
       link: "/aging"
+    },
+    {
+      icon: <Shield className="h-8 w-8 text-teal-500" />,
+      title: "Defense Systems",
+      description: "Strengthening the body's natural defense mechanisms.",
+      link: "/defense-systems"
+    },
+    {
+      icon: <Shield className="h-8 w-8 text-green-500" />,
+      title: "Inflammation",
+      description: "Understanding and reducing chronic inflammation.",
+      link: "/inflammation"
     },
     {
       icon: <Brain className="h-8 w-8 text-purple-500" />,
       title: "Autophagy",
-      description: "Cellular recycling system that maintains cell health and promotes longevity.",
+      description: "The cellular recycling system for promoting longevity.",
       link: "/autophagy"
     },
     {
       icon: <Zap className="h-8 w-8 text-yellow-500" />,
       title: "Mitochondria",
-      description: "The powerhouse of cells - energy production and aging prevention.",
+      description: "The powerhouse of cells for energy and aging prevention.",
       link: "/mitochondria"
-    },
-    {
-      icon: <Shield className="h-8 w-8 text-green-500" />,
-      title: "Inflammation",
-      description: "Understanding chronic inflammation and how to reduce it naturally.",
-      link: "/inflammation"
     },
     {
       icon: <Dna className="h-8 w-8 text-blue-500" />,
       title: "Microbiome",
-      description: "Gut health and the trillions of bacteria that support overall wellness.",
+      description: "Gut health and the bacteria that support overall wellness.",
       link: "/microbiome"
     },
     {
+      icon: <Utensils className="h-8 w-8 text-amber-600" />,
+      title: "Nutrition",
+      description: "Fueling your body for optimal health and longevity.",
+      link: "/nutrition"
+    },
+    {
       icon: <Activity className="h-8 w-8 text-orange-500" />,
-      title: "Exercise & Movement",
-      description: "Physical activity as medicine for longevity and health optimization.",
+      title: "Exercise",
+      description: "Physical activity as medicine for a long and healthy life.",
       link: "/exercise"
+    },
+    {
+      icon: <Moon className="h-8 w-8 text-indigo-500" />,
+      title: "Sleep",
+      description: "The foundation of physical and mental restoration.",
+      link: "/sleep"
+    },
+    {
+      icon: <Bone className="h-8 w-8 text-gray-500" />,
+      title: "Bone Health",
+      description: "Maintaining a strong and resilient skeletal structure.",
+      link: "/bone-health"
+    },
+    {
+      icon: <Heart className="h-8 w-8 text-rose-500" />,
+      title: "Circulation",
+      description: "Ensuring optimal blood flow and nutrient delivery.",
+      link: "/circulation"
+    },
+    {
+      icon: <Zap className="h-8 w-8 text-lime-500" />,
+      title: "Metabolism",
+      description: "Optimizing the body's energy conversion processes.",
+      link: "/metabolism"
+    },
+    {
+      icon: <Brain className="h-8 w-8 text-pink-500" />,
+      title: "Mindset",
+      description: "The role of mental well-being in a long, healthy life.",
+      link: "/mindset"
+    },
+    {
+      icon: <Cpu className="h-8 w-8 text-cyan-500" />,
+      title: "Technology",
+      description: "Leveraging tech for health monitoring and improvement.",
+      link: "/technology"
+    },
+    {
+      icon: <Biohazard className="h-8 w-8 text-red-700" />,
+      title: "Toxins",
+      description: "Identifying and mitigating exposure to harmful substances.",
+      link: "/toxins"
     }
   ]
 
@@ -118,24 +172,19 @@ export function Home() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="bg-gradient-to-r from-green-600 to-blue-600 py-20 px-4">
+      <section className="bg-gradient-to-r from-gray-800 to-gray-900 py-20 px-4">
         <div className="max-w-4xl mx-auto text-center text-white">
           <h2 className="text-4xl font-bold mb-6">
-            Ready to Optimize Your Health?
+            Explore Other Health Topics
           </h2>
-          <p className="text-xl mb-8 text-green-100">
-            Take control of your longevity journey with evidence-based strategies 
-            that can help you live longer, healthier, and more vibrant life.
+          <p className="text-xl mb-8 text-gray-300">
+            Discover a wide range of additional health and longevity topics
+            to continue your journey of optimization.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100">
-              <Link to="/nutrition">
-                Start with Nutrition
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-green-600">
-              <Link to="/exercise">
-                Explore Exercise
+          <div className="flex justify-center">
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-gray-900" data-testid="other-health-button">
+              <Link to="/other-health">
+                Other Health
               </Link>
             </Button>
           </div>
