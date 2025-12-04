@@ -182,7 +182,7 @@ export function Home() {
             to continue your journey of optimization.
           </p>
           <div className="flex justify-center">
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-gray-900" data-testid="other-health-button">
+            <Button size="lg" variant="outline" className="border-white text-gray-900 hover:bg-white hover:text-gray-700" data-testid="other-health-button">
               <Link to="/other-health">
                 Other Health
               </Link>
