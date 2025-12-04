@@ -22,7 +22,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/manus-lfh">
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
         <Navigation />
         <main className="pt-16">
